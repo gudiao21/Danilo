@@ -7,7 +7,7 @@
 
 system 'clear'
 
-puts "Fala, seu João! Tudo bem com o senhor?"
+puts "Fala, seu João! Tudo bem com o senhor ?"
 puts "Qual é o valor total do pedido: "
 total_value = gets.chomp.to_f
 puts "Digitar o nome do produto: "
