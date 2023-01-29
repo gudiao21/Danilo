@@ -11,22 +11,30 @@ puts "Fala, seu João! Tudo bem com o senhor?"
 puts "Qual é o valor total do pedido: "
 total_value = gets.chomp.to_f
 #Digitar o nome do produto e o valor do produto.
-#verificar se o valor é inferior a R$ 10,00, se sim rodar a regra de acrescentar um novo produto
-#pedir a porcentagem de desconto.
+#verificar se o valor é inferior a R$ 10,00, se sim rodar a regra de acrescentar um novo produto.
 
+#pedir a porcentagem de desconto.
 puts "Qual o valor da porcentagem de desconto: "
 discount_percentage = gets.to_f
 
 discount_value = total_value * discount_percentage/100
-result = total_value - discount_value
+total_value_with_discount = total_value - discount_value
+increase_in_value = 0
+
+if total_value_with_discount < 10
+  puts"Olá cliente, você gostaria de incluir mais esse novo ítem? (S/N)"
+  customer_decision = gets #variáveis não tem acentos nem espaços.
+  if customer_decision.to_s.upcase.strip == "S"
+    increase_in_value = 15
+  end
+end
+
+total_value_with_discount += increase_in_value
 puts "Seu João, o valor total digitado foi: #{sprintf("R$%.2f",total_value)}" #configuração para formato dinheiro, com 2 casas após a vírgula.
 puts "O valor do desconto foi R$#{'%.2f' % discount_value}" #Formato dinheiro.
-puts "Valor total a ser cobrado é de: R$#{'%.2f' % result}"
+puts "Valor total a ser cobrado é de: R$#{'%.2f' % total_value_with_discount}"
 puts "=============================="
 
-if discount_value < 10
-  puts"Olá cliente, você gostaria de incluir mais esse novo ítem? (S/N)"
-  decisao_do_cliente = gets #variáveis não tem acentos nem espaços.
 
   #Mostrar um resumo detalhado de tudo que aconteceu aqui, com nomes e valores de produtos.
 
