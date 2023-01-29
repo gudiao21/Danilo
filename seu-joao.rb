@@ -10,8 +10,11 @@ system 'clear'
 puts "Fala, seu João! Tudo bem com o senhor?"
 puts "Qual é o valor total do pedido: "
 total_value = gets.chomp.to_f
-#Digitar o nome do produto e o valor do produto.
-#verificar se o valor é inferior a R$ 10,00, se sim rodar a regra de acrescentar um novo produto.
+puts "Digitar o nome do produto: "
+product_name = gets.chomp
+puts "Digitar o valor do produto: "
+product_value = gets.chomp
+#verificar se o valor é inferior a R$ 10,00, se sim, rodar a regra de acrescentar um novo produto.
 
 #pedir a porcentagem de desconto.
 puts "Qual o valor da porcentagem de desconto: "
@@ -30,11 +33,18 @@ if total_value_with_discount < 10
 end
 
 total_value_with_discount += increase_in_value
+
+#Mostrar um resumo detalhado de tudo que aconteceu aqui, com nomes e valores de produtos.
+
 puts "Seu João, o valor total digitado foi: #{sprintf("R$%.2f",total_value)}" #configuração para formato dinheiro, com 2 casas após a vírgula.
 puts "O valor do desconto foi R$#{'%.2f' % discount_value}" #Formato dinheiro.
+if increase_in_value > 0
+  puts "=============================="
+  puts "O item a mais incluído tem o valor de #{sprintf("R$%.2f", increase_in_value)}"
+end
+puts "================================"
+puts "A porcentagem de desconto foi de #{sprintf("R$%.2f", discount_percentage)}"
+puts "================================"
 puts "Valor total a ser cobrado é de: R$#{'%.2f' % total_value_with_discount}"
-puts "=============================="
-
-
-  #Mostrar um resumo detalhado de tudo que aconteceu aqui, com nomes e valores de produtos.
+puts "================================"
 
