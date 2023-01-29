@@ -8,7 +8,7 @@ puts "Qual o valor da porcentagem de desconto: "
 perc = gets.to_f
 discount_value = purchase * perc/100
 result = purchase - discount_value
-puts "Seu João, o valor total digitado foi: R$#{purchase}"
-puts "O valor do desconto foi #{discount_value}"
-puts "Valor total a ser cobrado é de: R$#{result}"
+puts "Seu João, o valor total digitado foi: #{sprintf("R$%.2f",purchase)}" #configuração para formato dinheiro, com 2 casas após a vírgula.
+puts "O valor do desconto foi R$#{'%.2f' % discount_value}" #Formato dinheiro.
+puts "Valor total a ser cobrado é de: R$#{'%.2f' % result}"
 puts "=============================="
