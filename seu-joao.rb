@@ -55,7 +55,8 @@ total_value_with_discount += increase_in_value
 #Mostrar um resumo detalhado de tudo que aconteceu aqui, com nomes e valores de produtos:
 
 puts "Seu João, o valor total digitado foi: #{sprintf("R$%.2f",total_value)}" #configuração para formato dinheiro, com 2 casas após a vírgula.
-puts "O valor do desconto foi R$#{'%.2f' % discount_value}" #Formato dinheiro.
+puts "O valor do desconto foi: R$#{'%.2f' % discount_value}" #Formato dinheiro.
+puts "A porcentagem de desconto foi de"
 if increase_in_value > 0
   puts "=============================="
   puts "O item a mais incluído tem o valor de: #{sprintf("R$%.2f", increase_in_value)}"
