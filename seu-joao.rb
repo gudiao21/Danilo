@@ -16,30 +16,39 @@ product_name = gets.chomp
 #Digitar o valor do produto:
 puts "Digitar o valor do produto: "
 product_value = gets.chomp
+#Pedir a porcentage de desconto:
+puts "Digite a porcentagem de desconto: "
+discount_percentage = gets.to_f
 
 discount_value = total_value * discount_percentage/100
 total_value_with_discount = total_value - discount_value
 increase_in_value = 0
-#verificar se o valor é inferior a R$ 10,00, se sim, rodar a regra de acrescentar um novo produto:
-if total_values_with_discount < 10
 
+#verificar se o valor é inferior a R$ 10,00, se sim, rodar a regra de acrescentar um novo produto:
+if total_value_with_discount < 10
+  puts "Olá cliente, você gostaria de incluir mais esse novo item? (S/N)"
+  customer_decision = gets #variáveis não têm acentos nem espaços.
+  if customer_decision.to_s.upcase.strip == "S"
+    increase_in_value = 15
+  end
+end    
 
 
 #pedir a porcentagem de desconto:
-puts "Qual o valor da porcentagem de desconto: "
-discount_percentage = gets.to_f
+#puts "Qual o valor da porcentagem de desconto: "
+#discount_percentage = gets.to_f
 
 #discount_value = total_value * discount_percentage/100
 #total_value_with_discount = total_value - discount_value
 #increase_in_value = 0
 
-if total_value_with_discount < 10
-  puts"Olá cliente, você gostaria de incluir mais esse novo ítem? (S/N)"
-  customer_decision = gets #variáveis não tem acentos nem espaços.
-  if customer_decision.to_s.upcase.strip == "S"
-    increase_in_value = 15
-  end
-end
+#if total_value_with_discount < 10
+  #puts"Olá cliente, você gostaria de incluir mais esse novo ítem? (S/N)"
+  #customer_decision = gets #variáveis não tem acentos nem espaços.
+  #if customer_decision.to_s.upcase.strip == "S"
+    #increase_in_value = 15
+  #end
+#end
 
 total_value_with_discount += increase_in_value
 
