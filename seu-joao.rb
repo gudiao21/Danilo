@@ -10,19 +10,28 @@ system 'clear'
 puts "Fala, seu João! Tudo bem com o senhor ?"
 puts "Qual é o valor total do pedido: "
 total_value = gets.chomp.to_f
+#Digitar o nome do produto:
 puts "Digitar o nome do produto: "
 product_name = gets.chomp
+#Digitar o valor do produto:
 puts "Digitar o valor do produto: "
 product_value = gets.chomp
-#verificar se o valor é inferior a R$ 10,00, se sim, rodar a regra de acrescentar um novo produto.
-
-#pedir a porcentagem de desconto.
-puts "Qual o valor da porcentagem de desconto: "
-discount_percentage = gets.to_f
 
 discount_value = total_value * discount_percentage/100
 total_value_with_discount = total_value - discount_value
 increase_in_value = 0
+#verificar se o valor é inferior a R$ 10,00, se sim, rodar a regra de acrescentar um novo produto:
+if total_values_with_discount < 10
+
+
+
+#pedir a porcentagem de desconto:
+puts "Qual o valor da porcentagem de desconto: "
+discount_percentage = gets.to_f
+
+#discount_value = total_value * discount_percentage/100
+#total_value_with_discount = total_value - discount_value
+#increase_in_value = 0
 
 if total_value_with_discount < 10
   puts"Olá cliente, você gostaria de incluir mais esse novo ítem? (S/N)"
@@ -34,16 +43,17 @@ end
 
 total_value_with_discount += increase_in_value
 
-#Mostrar um resumo detalhado de tudo que aconteceu aqui, com nomes e valores de produtos.
+#Mostrar um resumo detalhado de tudo que aconteceu aqui, com nomes e valores de produtos:
 
 puts "Seu João, o valor total digitado foi: #{sprintf("R$%.2f",total_value)}" #configuração para formato dinheiro, com 2 casas após a vírgula.
 puts "O valor do desconto foi R$#{'%.2f' % discount_value}" #Formato dinheiro.
 if increase_in_value > 0
   puts "=============================="
-  puts "O item a mais incluído tem o valor de #{sprintf("R$%.2f", increase_in_value)}"
+  puts "O item a mais incluído tem o valor de: #{sprintf("R$%.2f", increase_in_value)}"
+  puts "=============================="
 end
 puts "================================"
-puts "A porcentagem de desconto foi de #{sprintf("R$%.2f", discount_percentage)}"
+puts "A porcentagem de desconto foi de: #{sprintf("R$%.2f", discount_percentage)}"
 puts "================================"
 puts "Valor total a ser cobrado é de: R$#{'%.2f' % total_value_with_discount}"
 puts "================================"
