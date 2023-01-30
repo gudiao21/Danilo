@@ -4,11 +4,12 @@
 # Se o valor total descontado der inferior a R$ 10,00 oferecer um item a mais no pedido.
 #Perguntar o nome deste item e o valor deste item.
 #O desconto de x% será dado no valor total com os itens.
+#Esse código inclui o conceito de "cross selling".
 
 system 'clear'
 
 puts "Fala, seu João! Tudo bem com o senhor ?"
-puts "Digitar o nome do produto comprado: "
+puts "Digitar o nome do primeiro produto comprado: "
 product_name = gets.chomp
 #Digitar o valor do produto:
 puts "Digitar o valor do produto comprado: "
@@ -26,11 +27,11 @@ if value_with_discount < 10
   puts "Olá cliente, você gostaria de incluir mais esse novo item? (S/N)"
   customer_decision = gets #variáveis não têm acentos nem espaços.
   if customer_decision.to_s.upcase.strip == "S"
-    puts "Qual no nome do produto extra ganho: "
-    earned_product_name = gets.chomp
-    puts "Qual o valor do produto ganho: "
-    earned_product_value = gets.chomp.to_f
-    total_products_value = product_value + earned_product_value
+    puts "Qual no nome do produto extra sugerido? "
+    chosen_product_name = gets.chomp
+    puts "Qual o valor do produto escolhido: "
+    chosen_product_value = gets.chomp.to_f
+    total_products_value = product_value + chosen_product_value
     puts "Qual será o valor do desconto no total da compra com os dois produtos? "
     total_discount_percentage = gets.chomp.to_f
     total_discount_value = total_products_value * total_discount_percentage/100
@@ -59,20 +60,19 @@ end
 #total_value_with_discount += increase_in_value
 
 #Mostrar um resumo detalhado de tudo que aconteceu aqui, com nomes e valores de produtos:
-puts "O nome do produto é: #{product_name}"
-
-puts "Seu João, o valor total digitado foi: #{sprintf("R$%.2f",total_value)}" #configuração para formato dinheiro, com 2 casas após a vírgula.
-puts "#{product_name} é o nome do primeiro produto escolhido para se comprar"
-puts "O valor do desconto da compra do 1º produto foi: R$#{'%.2f' % value_with_discount}" #Formato dinheiro.
-puts "A porcentagem de desconto da primeira conmpra foi de #{}"
-if increase_in_value > 0
+#puts "Seu João, o valor total digitado foi: #{sprintf("R$%.2f",total_value)}" #configuração para formato dinheiro, com 2 casas após a vírgula.
+puts "#{product_name} é o nome do primeiro produto escolhido para se comprar."
+puts "O valor da compra do primeiro produto foi de : #{sprintf("R$%.2f", product_value)}"
+puts "O valor (em Reais) do desconto da compra do 1º produto foi: R$#{'%.2f' % value_with_discount}" #Formato dinheiro.
+#puts "A porcentagem de desconto da primeira conmpra foi de #{}"
+#if increase_in_value > 0
   puts "=============================="
-  puts "O item a mais incluído tem o valor de: #{sprintf("R$%.2f", increase_in_value)}"
+  puts "#{chosen_product_name} é o nome do produto incluso."
+  #puts "O item a mais incluído tem o valor de: #{sprintf("R$%.2f", increase_in_value)}"
   puts "=============================="
-end
+#end
 puts "================================"
-puts "A porcentagem de desconto foi de: #{sprintf("R$%.2f", discount_percentage)}"
+puts "A porcentagem de desconto (em Reais) dos 2 produtos adquiridos foram de: #{sprintf("R$%.2f", total_discount_value)}"
 puts "================================"
 puts "Valor total a ser cobrado é de: R$#{'%.2f' % total_value_with_discount}"
 puts "================================"
-
