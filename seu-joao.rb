@@ -6,37 +6,39 @@
 #O desconto de x% será dado no valor total com os itens.
 #Esse código inclui o conceito de "cross selling".
 
+
 system 'clear'
 
 puts "Fala, seu João! Tudo bem com o senhor ?"
 puts "Digitar o nome do primeiro produto comprado: "
 product_name = gets.chomp
 #Digitar o valor do produto:
-puts "Digitar o valor do produto comprado: "
+puts "Digitar o valor (em Reais) do primeiro produto comprado: "
 product_value = gets.chomp.to_f
 #Pedir a porcentage de desconto:
-puts "Digite a porcentagem de desconto de apenas o(s)/a(s)) #{product_name}: "
+puts "Digite a porcentagem de desconto de apenas o(s)/a(s) #{product_name}: "
 discount_percentage = gets.to_f
 
 discount_value = product_value * (discount_percentage/100)
 value_with_discount = (product_value - discount_value)
-increase_in_value = 0
+chosen_product_value = 0
 
 #verificar se o valor é inferior a R$ 10,00, se sim, rodar a regra de acrescentar um novo produto:
 if value_with_discount < 10
-  puts "Olá cliente, você gostaria de incluir mais esse novo item? (S/N)"
+  puts "Olá cliente, você gostaria de incluir um item a mais no seu pedido? (S/N)"
   customer_decision = gets #variáveis não têm acentos nem espaços.
   if customer_decision.to_s.upcase.strip == "S"
-    puts "Qual no nome do produto extra sugerido? "
+    puts "Qual o nome do produto extra sugerido? "
     chosen_product_name = gets.chomp
     puts "Qual o valor do produto escolhido: "
     chosen_product_value = gets.chomp.to_f
-    total_products_value = product_value + chosen_product_value
-    puts "Qual será o valor do desconto no total da compra com os dois produtos? "
-    total_discount_percentage = gets.chomp.to_f
-    total_discount_value = total_products_value * total_discount_percentage/100
-    total_value_with_discount =  total_products_value - total_discount_value
-    #increase_in_value = 15
+    #total_products_value = value_with_discount + chosen_product_value
+    puts "============================="
+   
+    #total_discount_percentage = gets.chomp.to_f
+    #total_discount_value = total_products_value * total_discount_percentage/100
+    #total_value_with_discount =  total_products_value - total_discount_value
+    #ncrease_in_value = chosen_product_value
   end
 end
 
@@ -57,22 +59,27 @@ end
   #end
 #end
 
-#total_value_with_discount += increase_in_value
+value_with_discount += chosen_product_value
+puts "==================================="
+system 'clear'
 
 #Mostrar um resumo detalhado de tudo que aconteceu aqui, com nomes e valores de produtos:
 #puts "Seu João, o valor total digitado foi: #{sprintf("R$%.2f",total_value)}" #configuração para formato dinheiro, com 2 casas após a vírgula.
-puts "#{product_name} é o nome do primeiro produto escolhido para se comprar."
+puts "#{product_name} é o nome do primeiro produto escolhido que foi comprado."
+puts "=============================="
 puts "O valor da compra do primeiro produto foi de : #{sprintf("R$%.2f", product_value)}"
-puts "O valor (em Reais) do desconto da compra do 1º produto foi: R$#{'%.2f' % value_with_discount}" #Formato dinheiro.
+puts "=================================="
+puts "O valor (em Reais) do desconto da compra do 1º produto foi: R$#{'%.2f' % discount_value}" #Formato dinheiro.sud
 #puts "A porcentagem de desconto da primeira conmpra foi de #{}"
-#if increase_in_value > 0
+if chosen_product_value > 0
   puts "=============================="
   puts "#{chosen_product_name} é o nome do produto incluso."
-  #puts "O item a mais incluído tem o valor de: #{sprintf("R$%.2f", increase_in_value)}"
   puts "=============================="
-#end
+  puts "O item a mais incluído tem o valor de: #{sprintf("R$%.2f", chosen_product_value)}"
+end
+#puts "A porcentagem de desconto (em Reais) dos 2 produtos adquiridos foi de: #{sprintf("R$%.2f", total_products_value)}"
 puts "================================"
-puts "A porcentagem de desconto (em Reais) dos 2 produtos adquiridos foram de: #{sprintf("R$%.2f", total_discount_value)}"
-puts "================================"
-puts "Valor total a ser cobrado é de: R$#{'%.2f' % total_value_with_discount}"
-puts "================================"
+puts "O valor total do primeiro produto com desconto, mais a compra integral do segundo foi de: #{value_with_discount}"
+puts "============================="
+#puts "Valor total a ser cobrado é de: R$#{'%.2f' % total_value_with_discount}"
+#puts "================================"
