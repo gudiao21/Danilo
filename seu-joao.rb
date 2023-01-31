@@ -11,17 +11,23 @@ system 'clear'
 
 puts "Fala, seu João! Tudo bem com o senhor ?"
 puts "Digitar o nome do primeiro produto comprado: "
-product_name = gets.chomp
+product_name = gets.chomp.to_s.strip
 #Digitar o valor do produto:
 puts "Digitar o valor (em Reais) do primeiro produto comprado: "
 product_value = gets.chomp.to_f
 #Pedir a porcentage de desconto:
-puts "Digite a porcentagem de desconto de apenas o(s)/a(s) #{product_name}: "
+puts "Digite a porcentagem de desconto de apenas o(s)/a(s) (#{product_name}): "
 discount_percentage = gets.to_f
+puts "Olá cliente, você gostaria de incluir um item a mais no seu pedido? Se fizer isso, você ganhará um desconto na compra dos dois produtos!"
+customer_decision = gets
+vai_adicionar_produto_a_mais = customer_decision.to_s.upcase.strip == "S"
 
-discount_value = product_value * (discount_percentage/100)
+=begin discount_value = product_value * (discount_percentage/100)
 value_with_discount = (product_value - discount_value)
-chosen_product_value = 0
+chosen_product_value = 0 
+if chosen_product_value.nil? #Se a variável = nil, então zera a mesma.
+  chosen_product_value = 0
+end  
 
 #verificar se o valor é inferior a R$ 10,00, se sim, rodar a regra de acrescentar um novo produto:
 if value_with_discount < 10
@@ -29,7 +35,7 @@ if value_with_discount < 10
   customer_decision = gets #variáveis não têm acentos nem espaços.
   if customer_decision.to_s.upcase.strip == "S"
     puts "Qual o nome do produto extra sugerido? "
-    chosen_product_name = gets.chomp
+    chosen_product_name = gets.chomp.to_s.strip
     puts "Qual o valor do produto escolhido: "
     chosen_product_value = gets.chomp.to_f
     #total_products_value = value_with_discount + chosen_product_value
