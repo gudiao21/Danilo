@@ -16,7 +16,7 @@ puts "Digitar o nome do primeiro produto comprado: "
 product1_name = gets.chomp.to_s.strip
 
 puts "Digitar o valor (em Reais) do primeiro produto comprado: "
-product_value = gets.chomp.to_f
+product1_value = gets.chomp.to_f.strip
 
 system 'clear'
 
@@ -26,6 +26,18 @@ vai_adicionar_produto_a_mais = gets.to_s.upcase.strip == "S"
 if vai_adicionar_produto_a_mais
   puts "Entendi, (#{customer_name})! Qual o nome do novo produto que você deseja incluir ?"
   product2_name = gets.to_s.strip
-  puts "Digite o valor do produto (#{product2_name})"
+  
+  puts "Digite o valor do novo produto: (#{product2_name})"
+  product2_value = gets.to_f.strip
 
+  puts "Perfeito, (#{customer_name}), por você ter adicionado um produto a mais, terás 1% de desconto!"
+  desconto_total += 1
 end
+
+puts "Olá, (#{customer_name})! Já aplicamos (#{desconto_total}%) de desconto, você desejaria acrescentar mais desconto? Coloque o valor do desconto a mais ou digite zero para sem desconto a mais. "
+desconto_total += gets.to_f
+
+valor_total = (product1_value + product2_value)
+valor_do_desconto = valor_total * desconto_total / 100
+valor_total_com_desconto = valor_total - valor_do_desconto
+
