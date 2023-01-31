@@ -16,7 +16,7 @@ puts "Digitar o nome do primeiro produto comprado: "
 product1_name = gets.chomp.to_s.strip
 
 puts "Digitar o valor (em Reais) do primeiro produto comprado: "
-product1_value = gets.chomp.to_f.strip
+product1_value = gets.chomp.to_f
 
 system 'clear'
 
@@ -28,15 +28,15 @@ if vai_adicionar_produto_a_mais
   puts "Entendi, (#{customer_name})! Qual o nome do novo produto que você deseja incluir ?"
   product2_name = gets.to_s.strip
   
-  puts "Digite o valor do novo produto: (#{product2_name})"
-  product2_value = gets.to_f.strip
+  puts "Digite o valor do (#{product2_name}):"
+  product2_value = gets.to_f
 
   puts "Perfeito, (#{customer_name}), por você ter adicionado um produto a mais, terás 1% de desconto!"
-  porcentagem_desconto_totals "Olá, (#{customer_name})! Já aplicamos (#{desconto_total}%) de desconto, você desejaria acrescentar mais desconto? Coloque o valor do desconto a mais ou digite zero para sem desconto a mais. "
-desconto_total += gets.to_f
+  porcentagem_desconto_total += 1
+end
 
 valor_total = (product1_value + product2_value)
-valor_do_desconto = valor_total * desconto_total / 100
+valor_do_desconto = valor_total * porcentagem_desconto_total / 100
 valor_total_descontado = valor_total - valor_do_desconto
 
 system 'clear'
@@ -44,14 +44,14 @@ system 'clear'
 puts "Opa, Seu (#{customer_name}), o pedido deu: "
 puts "O valor do desconto foi: "
 puts "Itens: "
-puts " - #{product1_name}: #{("R$%.2f", product1_value)}"
+puts " - #{product1_name}: #{sprintf("R$%.2f", product1_value)}"
 if vai_adicionar_produto_a_mais
-  puts " - #{product2_name}: #{("R$%.2f", product2_value)}"
+  puts " - #{product2_name}: #{sprintf("R$%.2f", product2_value)}"
 end
 
 puts "=========================="
-puts "A porcentagem de desconto total foi de: #{valor_do_desconto}%"
+puts "A porcentagem de desconto total foi de: #{sprintf("R$ %.2f", porcentagem_desconto_total)}%"
 puts "=========================="
-puts "O valor (em Reais) do desconto foi: #{("R$%.2f", valor_do_desconto)}"
+puts "O valor (em Reais) do desconto foi: #{sprintf("R$ %.2f", valor_do_desconto)}"
 puts "=========================="
-puts "Valor total do pedido com desconto: #{("R$%.2f", Valor_total_descontado)}"
+puts "Valor total (em Reais) do pedido com desconto: #{sprintf("R$%.2f", Valor_total_descontado)}"
