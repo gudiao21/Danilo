@@ -1,9 +1,3 @@
-# Dado que eu tenha algumas opções:
-# - Banana
-# -Maça
-# -Laranja
-# e digite algum dos itens listados acima, ao escolher, coloque um valor diferente para fruta, este valor estará no bloco selecionada no final do programa mostre o valor de acordo com a escolha da fruta.
-
 require 'byebug'
 
 puts "Digite um número: "
