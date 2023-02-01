@@ -41,7 +41,7 @@ end
 
 puts "Olá, #{customer_name}! Já temos #{porcentagem_desconto}% de desconto, você deseja acrescentar mais desconto?\nColoque o valor do desconto ou digite zero para não ter mais desconto."
 porcentagem_desconto += gets.to_f
-#debugger
+debugger
 
 #valor_total = (product1_value + product2_value)
 valor_do_desconto = valor_total * porcentagem_desconto / 100
