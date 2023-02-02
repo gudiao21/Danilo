@@ -9,13 +9,13 @@ require 'byebug'
 
 system 'clear'
 
-puts "Digite o nome do seu cliente: "
+puts "Digite o nome do seu cliente :"
 customer_name = gets.to_s.strip
 
 puts "Digitar o nome do primeiro produto comprado: "
 product1_name = gets.chomp.to_s.strip
 
-puts "Digitar o valor (em Reais) do primeiro produto comprado: "
+puts "Digitar o valor (em Reais) do primeiro produto comprado:"
 product1_value = gets.chomp.to_f
 
 system 'clear'
@@ -27,7 +27,7 @@ valor_total = product1_value
 
 porcentagem_desconto = 0
 if vai_adicionar_produto_a_mais
-  puts "Entendi, (#{customer_name})! Qual o nome do novo produto que você deseja incluir ?"
+  puts "Entendi, (#{customer_name})! Qual o nome do novo produto que você deseja incluir?"
   product2_name = gets.to_s.strip
   
   puts "Digite o valor do (#{product2_name}):"
