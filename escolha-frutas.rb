@@ -27,7 +27,7 @@ puts "=========================="
 opcao = gets.to_i
 case opcao
 when 1
-  puts "Você escolheu a fruta banana, que custa R$3,00."
+  puts "Você escolheu a fruta banana, que custa R$3,00. "
 when 2
   puts "Você escolheu a fruta Maçã, que custa R$5,00."
 when 3
