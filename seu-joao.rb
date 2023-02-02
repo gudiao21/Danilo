@@ -33,7 +33,7 @@ if vai_adicionar_produto_a_mais
   puts "Digite o valor do (#{product2_name}):"
   product2_value = gets.to_f
 
-  puts "Perfeito, (#{customer_name}), por você ter adicionado um produto a mais, terás 1% de desconto!"
+  puts "Perfeito, (#{customer_name}), por você ter adicionado um produto a mais,terás 1% de desconto!"
   porcentagem_desconto += 1
 
   valor_total += product2_value
