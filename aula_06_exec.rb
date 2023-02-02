@@ -19,4 +19,3 @@ while pesquisa_em_andamento do
 end
 
 puts "O seu NPS é de: #{(notas.sum / notas.length)}"
-
