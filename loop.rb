@@ -13,5 +13,5 @@ while em_aula do
   #puts "A aula já acabou ? (S/N)"
   #em_aula = (gets.upcase.strip != "S")
 end
-
+puts "Notas obtidas"
 puts "O seu NPS é de: #{(notas.sum / notas.length)}"
