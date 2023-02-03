@@ -19,6 +19,7 @@ while Time.now < data_encerramento do
   else
     puts "A nota atribuída não pode ser processada, pois está fora da margem de possibilidades!"
   end
+  puts "A pesquisa irá encerrar às: #{Time.at((data_encerramento - Time.now)).strftime("M%:%S")}"
   end
 puts "A quantidade de avaliações(ão) (foi/foram) de: #{notas.length}"
 puts "Notas obtidas: #{(notas)}"
