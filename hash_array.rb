@@ -5,12 +5,10 @@
 # 4 - Sair.
 # Faça o programa em app console utilizando variáveis, loop, condicionais e array.
 
-aluno = [
-  {
-    [
-  nome: "Luciano",
-  matricula: "546852",
-  nota: 10
-  ]
-}
-]
+
+
+puts "Escolha uma das opções abaixo: "
+puts "==============================================="
+puts "Digite 1 para cadastrar o aluno."
+puts "Digite 2 para cadastrar a matrícula do aluno."
+puts "Digite 3 para cadastrar a nota do aluno."
