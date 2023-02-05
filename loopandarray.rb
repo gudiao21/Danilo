@@ -1,4 +1,4 @@
-require 'byebug'
+#require 'byebug'
 
 # top = 4
 # now = 0
