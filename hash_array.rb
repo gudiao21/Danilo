@@ -6,14 +6,14 @@
 # Faça o programa em app console utilizando variáveis, loop, condicionais e array.
 
 
-alunos = {}
+alunos = []
 escolha = 0
 
 
-while escolha != 4 do
+while escolha.to_i != 4 do
    system 'clear'
    puts "Escolha uma das opções abaixo: "
-   puts "==============================================="
+puts "==============================================="
    puts "Digite 1 para cadastrar o aluno."
    puts "Digite 2 para cadastrar a matrícula do aluno."
    puts "Digite 3 para cadastrar a nota do aluno."
@@ -24,9 +24,9 @@ while escolha != 4 do
    case
      when 1
        print "Digite o nome do aluno: "
-       alunos[nome:gets.to_s.strip]
+       alunos[nome:gets.to_s]
        puts "Cadastro feito com sucesso!"
-       sleep(4)
+       sleep(2)
      when 2
        print "Digite a matrícula do aluno: "
        alunos[matricula:gets.chomp.to_i]
