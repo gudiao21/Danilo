@@ -25,9 +25,10 @@ while escolha != 4 do
      when 1
        aluno = {nome:"", matricula:"", notas:[]}
        print "Digite o nome do aluno: "
-       aluno[:nome] = gets.to_s
+       aluno[:nome] = gets.to_s.strip
        print "Digite a matrícula do aluno: "
-       aluno[:matricula] = gets
+       aluno[:matricula] = gets.to_i
+       aluno[:notas] = []
        alunos.push(aluno) #Ou: alunos << aluno
        puts "Cadastro feito com sucesso!"
        #sleep(2)
@@ -38,24 +39,37 @@ while escolha != 4 do
        alunos.each do |a|
             if a[:matricula] == matricula
               print "Digite a nota do aluno: "
-              a[:notas] << gets.to_f
+              nota = gets.to_f
+              if nota < 0 or nota > 10
+                puts "Nota inválida! Você deve escolher números entre 0 e 10."
+                break
+              end
+              a[:notas] << nota
               aluno_encontrado = true
               break
             end
-     when 3
-       puts "Relatório:"
-       puts "======================"
-       puts "#{[:alunos]}"    
-        
-      end
+    end
+    puts "==========================\nAluno não encontrado!\n=========================\n"
+    when 3
+      puts "\n ------ Você selecionou a opção 3 ------"
+      puts "RELATÓRIO DE MÉDIAS E NOTAS DOS ALUNOS"
+      if alunos.length == 0
+        puts "\n\n" #Pula duas linhas.
+        puts "||||||||||||||||||||||||||||||||||||||"
+        puts "|  Atenção! Nenhum aluno cadastrado! |"
+        puts "||||||||||||||||||||||||||||||||||||||"
+      else
+        alunos.each do |aluno|
+          puts "============================================================="
+          puts "Nome do aluno: #{aluno[:nome]} - Matrícula: #{aluno[:matricula]}"
+          puts "Notas: #{aluno[:notas].join(", ")}"
+          puts "Média: #{(aluno[:notas].sum / aluno[:notas].length)}"
+          puts aluno
+
+     
+  end
   sleep (3)
   system 'clear'
   puts alunos
 
 end
-
-
-#   puts "================================================================="
-#   puts "A média das notas dos alunos é #{[:notas.sum] / [:nome.length]}"
-#   print "Muito obrigado por se cadastrar."
-
