@@ -14,7 +14,7 @@ while escolha != 4 do
    puts "==============================================="
    puts "Digite 1 para cadastrar o aluno."
    puts "Digite 2 para cadastrar a matrícula do aluno."
-   puts "Digite 3 para cadastrar a nota do aluno."
+   puts "Digite 3 para emitir ralatório das notas e médias dos alunos."
    puts "Digite 4 para sair."
    puts "==============================================="
    
@@ -31,26 +31,29 @@ while escolha != 4 do
        alunos.push(aluno) #Ou: alunos << aluno
        puts "Cadastro feito com sucesso!"
        #sleep(2)
-      when 2
-        print "Antes de entrar com a nota digite a matrícula do aluno: "
-        matricula = gets
-        aluno_encontrado = false
-        alunos.each do |a|
+     when 2
+       print "Antes de entrar com a nota digite a matrícula do aluno: "
+       matricula = gets
+       aluno_encontrado = false
+       alunos.each do |a|
             if a[:matricula] == matricula
               print "Digite a nota do aluno: "
               a[:notas] << gets.to_f
               aluno_encontrado = true
               break
-            end 
-        end
-        
-        puts "Aluno não encontrado!" unless aluno_encontrado #Se eu não encontrar o alunos, eu irei mostrar a mensagem: "Aluno não encontrado!"
+            end
+     when 3
+       puts "Relatório:"
+       puts "======================"
+       puts "#{[:alunos]}"    
         
       end
-
+  sleep (3)
+  system 'clear'
   puts alunos
 
 end
+
 
 #   puts "================================================================="
 #   puts "A média das notas dos alunos é #{[:notas.sum] / [:nome.length]}"
