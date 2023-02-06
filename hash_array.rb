@@ -8,8 +8,8 @@
 escolha = 0
 alunos = [] #Essa variável tem que ser fora do loop para se guardar o histórico, pois dentro do loop a cada interação ela zera.
 
-while escolha.to_i != 4 do
-   system 'clear'
+while escolha != 4 do
+   #system 'clear'
    puts "Escolha uma das opções abaixo: "
    puts "==============================================="
    puts "Digite 1 para cadastrar o aluno."
@@ -18,7 +18,7 @@ while escolha.to_i != 4 do
    puts "Digite 4 para sair."
    puts "==============================================="
    
-   aluno = {nome:"", matricula:"", notas:""}
+   aluno = {nome:"", matricula:"", notas:[]}
    escolha = gets.to_i
     
    case escolha
@@ -26,16 +26,19 @@ while escolha.to_i != 4 do
        print "Digite o nome do aluno: "
        aluno[:nome] = gets.to_s
        print "Digite a matrícula do aluno: "
-       aluno[:matricula] = gets.to_i
+       aluno[:matricula] = gets
        alunos.push(aluno) #Ou: alunos << aluno
        puts "Cadastro feito com sucesso!"
        #sleep(2)
-        #  when 2
-        #    print "Digite a matrícula do aluno: "
-        #    alunos[matricula:gets.chomp.to_i]
-        #  when 3
-        #    print "Digite a nota do aluno: "
-        #    alunos[nota:gets.chomp.to_f]
+     when 2
+        print "Antes de entrar com a nota digite a matrícula do aluno: "
+        alunos[:matricula] = gets
+        alunos.each do |a|
+            if a[:matricula] == matricula
+              puts "informe a nota do alunos"
+              a[:notas] << gets.to_f
+            end    
+        
         #when 4
         # break
         #  else
@@ -43,8 +46,8 @@ while escolha.to_i != 4 do
     end
 
   puts alunos
-
 end
+
 #   puts "================================================================="
 #   puts "A média das notas dos alunos é #{[:notas.sum] / [:nome.length]}"
 #   print "Muito obrigado por se cadastrar."
