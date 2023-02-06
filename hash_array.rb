@@ -18,11 +18,12 @@ while escolha != 4 do
    puts "Digite 4 para sair."
    puts "==============================================="
    
-   aluno = {nome:"", matricula:"", notas:[]}
+   
    escolha = gets.to_i
     
    case escolha
      when 1
+       aluno = {nome:"", matricula:"", notas:[]}
        print "Digite o nome do aluno: "
        aluno[:nome] = gets.to_s
        print "Digite a matrícula do aluno: "
@@ -32,13 +33,12 @@ while escolha != 4 do
        #sleep(2)
      when 2
         print "Antes de entrar com a nota digite a matrícula do aluno: "
-        alunos[:matricula] = gets
+        matricula = gets
         alunos.each do |a|
             if a[:matricula] == matricula
-              puts "informe a nota do alunos"
+              print "Digite a nota do aluno: "
               a[:notas] << gets.to_f
-            end    
-        
+            end  
         #when 4
         # break
         #  else
