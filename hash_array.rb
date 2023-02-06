@@ -31,21 +31,25 @@ while escolha != 4 do
        alunos.push(aluno) #Ou: alunos << aluno
        puts "Cadastro feito com sucesso!"
        #sleep(2)
-     when 2
+      when 2
         print "Antes de entrar com a nota digite a matrícula do aluno: "
         matricula = gets
+        aluno_encontrado = false
         alunos.each do |a|
             if a[:matricula] == matricula
               print "Digite a nota do aluno: "
               a[:notas] << gets.to_f
-            end  
-        #when 4
-        # break
-        #  else
-        #    puts "Sua entrada é inválida, entre com um número entre 1 e 4, por favor!"
-    end
+              aluno_encontrado = true
+              break
+            end 
+        end
+        
+        puts "Aluno não encontrado!" unless aluno_encontrado #Se eu não encontrar o alunos, eu irei mostrar a mensagem: "Aluno não encontrado!"
+        
+      end
 
   puts alunos
+
 end
 
 #   puts "================================================================="
