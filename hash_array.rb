@@ -23,7 +23,8 @@ while escolha != 4 do
     
    case escolha
      when 1
-       aluno = {nome:"", matricula:"", notas:[]}
+      puts "\n ------Você selecionou a opção 1 ------\n" 
+      aluno = {nome:"", matricula:"", notas:[]}
        print "Digite o nome do aluno: "
        aluno[:nome] = gets.to_s.strip
        print "Digite a matrícula do aluno: "
@@ -33,7 +34,8 @@ while escolha != 4 do
        puts "Cadastro feito com sucesso!"
        #sleep(2)
      when 2
-       print "Antes de entrar com a nota digite a matrícula do aluno: "
+      puts "\n------ Você selecionou a opção 2 ------\n" 
+      print "Antes de entrar com a nota digite a matrícula do aluno: "
        matricula = gets
        aluno_encontrado = false
        alunos.each do |a|
@@ -61,12 +63,14 @@ while escolha != 4 do
       else
         alunos.each do |aluno|
           puts "============================================================="
-          puts "Nome do aluno: #{aluno[:nome]} - Matrícula: #{aluno[:matricula]}"
+          puts "Nome do aluno: #{aluno[:nome]}"
+          puts "Matrícula: #{aluno[:matricula]}"
           puts "Notas: #{aluno[:notas].join(", ")}"
-          puts "Média: #{(aluno[:notas].sum / aluno[:notas].length)}"
-          puts aluno
+          puts "Média: #{(aluno[:notas].sum.to_f / aluno[:notas].length.to_f)}"
+        end
 
-     
+      end
+
   end
   sleep (3)
   system 'clear'
