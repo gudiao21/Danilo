@@ -5,25 +5,28 @@
 # 4 - Sair.
 # Faça o programa em app console utilizando variáveis, loop, condicionais e array.
 
+puts "============================================"
+puts "Olá Equipe da Escola de Música do Roberto!"
+puts "============================================"
+
 escolha = 0
 alunos = [] #Essa variável tem que ser fora do loop para se guardar o histórico, pois dentro do loop a cada interação ela zera.
 
 while escolha != 4 do
-   #system 'clear'
-   puts "Escolha uma das opções abaixo: "
+   puts "Escolha uma das opções abaixo: \n\n"
    puts "==============================================="
    puts "Digite (1) para cadastrar o aluno."
-   puts "Digite (2) para cadastrar a matrícula do aluno."
+   puts "Digite (2) para cadastrar a nota do aluno."
    puts "Digite (3) para emitir ralatório das notas e médias dos alunos."
    puts "Digite (4) para sair."
    puts "==============================================="
    
-   aluno = {nome:'', matricula:'', notas:[]}
+   aluno = {nome:"", matricula:"", notas:[]}
    escolha = gets.to_i
     
    case escolha
      when 1
-      puts "\n ------Você selecionou a opção 1 ------\n" 
+      puts "\n ------Você selecionou a opção 1 ------\n"
       #aluno = {nome:"", matricula:"", notas:[]}
       print "Digite o nome do aluno: "
       aluno[:nome] = gets.to_s.strip
@@ -58,7 +61,7 @@ while escolha != 4 do
               
             end
        end
-    end
+    
     puts "==========================\nAluno não encontrado!\n=========================\n"
     when 3
       puts "\n ------ Você selecionou a opção 3 ------"
@@ -73,15 +76,32 @@ while escolha != 4 do
           puts "============================================================="
           puts "Nome do aluno: #{aluno[:nome]}"
           puts "Matrícula: #{aluno[:matricula]}"
-          puts "Notas: #{aluno[:notas].join(", ")}"
-          puts "Média: #{(aluno[:notas].sum.to_f / aluno[:notas].length.to_f)}"
+          if aluno[:notas].length > 0
+            puts "Notas: #{aluno[:notas].join(", ")}"
+            puts "Média: #{(aluno[:notas].sum.to_f / aluno[:notas].length.to_f)}"
+          else
+            puts "Aluno sem notas para avaliação"
+          end
         end
-
-      end
     
-  end
-  sleep (3)
-  system 'clear'
-  puts alunos
+      end
+    when 4
+      puts "+---------- Você selecionou a opção 4 -------------+"
+      puts "|   Essa é a sua decisão de saída do programa      |"
+      puts "| A Equipe da Escola de Música do Roberto agradece |"
+      puts "+--------------------------------------------------+"
+      puts Time.now
+      puts "\n"
+      sleep (1)
+    else
+      puts "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+      puts "|||   Você selecionou uma opção que não está disponível   |||"
+      puts "||||||||    Reinicie ou escolha a opção (4) Sair.    ||||||||"
+      puts "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+  #sleep (3)
+  #system 'clear'
+  #puts alunos
 
-end
+    end #"end" do "case"
+    sleep (1)
+end #"end" do "while"
