@@ -25,30 +25,31 @@ while escolha != 4 do
      when 1
       puts "\n ------Você selecionou a opção 1 ------\n" 
       aluno = {nome:"", matricula:"", notas:[]}
-       print "Digite o nome do aluno: "
-       aluno[:nome] = gets.to_s.strip
-       print "Digite a matrícula do aluno: "
-       aluno[:matricula] = gets.to_i
-       aluno[:notas] = []
-       alunos.push(aluno) #Ou: alunos << aluno
-       puts "Cadastro feito com sucesso!"
+      print "Digite o nome do aluno: "
+      aluno[:nome] = gets.to_s.strip
+      print "Digite a matrícula do aluno: "
+      aluno[:matricula] = gets.to_i
+      aluno[:notas] = []
+      alunos.push(aluno) #Ou: alunos << aluno
+      puts "Cadastro feito com sucesso!"
        #sleep(2)
      when 2
       puts "\n------ Você selecionou a opção 2 ------\n" 
-      print "Antes de entrar com a nota digite a matrícula do aluno: "
-       matricula = gets
-       aluno_encontrado = false
-       alunos.each do |a|
+      print "Antes de entrar com a nota, digite a matrícula do aluno: "
+      matricula = gets.to_i
+      aluno_encontrado = false
+      alunos.each do |a|
             if a[:matricula] == matricula
               print "Digite a nota do aluno: "
               nota = gets.to_f
               if nota < 0 or nota > 10
                 puts "Nota inválida! Você deve escolher números entre 0 e 10."
                 break
+              else
+                a[:notas] << nota
+                aluno_encontrado = true
+                break
               end
-              a[:notas] << nota
-              aluno_encontrado = true
-              break
             end
     end
     puts "==========================\nAluno não encontrado!\n=========================\n"
