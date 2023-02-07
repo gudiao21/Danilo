@@ -12,19 +12,19 @@ while escolha != 4 do
    #system 'clear'
    puts "Escolha uma das opções abaixo: "
    puts "==============================================="
-   puts "Digite 1 para cadastrar o aluno."
-   puts "Digite 2 para cadastrar a matrícula do aluno."
-   puts "Digite 3 para emitir ralatório das notas e médias dos alunos."
-   puts "Digite 4 para sair."
+   puts "Digite (1) para cadastrar o aluno."
+   puts "Digite (2) para cadastrar a matrícula do aluno."
+   puts "Digite (3) para emitir ralatório das notas e médias dos alunos."
+   puts "Digite (4) para sair."
    puts "==============================================="
    
-   
+   aluno = {nome:'', matricula:'', notas:[]}
    escolha = gets.to_i
     
    case escolha
      when 1
       puts "\n ------Você selecionou a opção 1 ------\n" 
-      aluno = {nome:"", matricula:"", notas:[]}
+      #aluno = {nome:"", matricula:"", notas:[]}
       print "Digite o nome do aluno: "
       aluno[:nome] = gets.to_s.strip
       print "Digite a matrícula do aluno: "
@@ -32,6 +32,11 @@ while escolha != 4 do
       aluno[:notas] = []
       alunos.push(aluno) #Ou: alunos << aluno
       puts "Cadastro feito com sucesso!"
+      puts "==================================="
+      puts "Você cadastrou os seguintes dados:"
+      puts "==================================="
+      puts "Nome completo do aluno: #{aluno[:nome]}"
+      puts "Matrícula do aluno: #{aluno[:matricula]}\n"
        #sleep(2)
      when 2
       puts "\n------ Você selecionou a opção 2 ------\n" 
@@ -40,17 +45,19 @@ while escolha != 4 do
       aluno_encontrado = false
       alunos.each do |a|
             if a[:matricula] == matricula
+              aluno_encontrado = true
               print "Digite a nota do aluno: "
               nota = gets.to_f
               if nota < 0 or nota > 10
                 puts "Nota inválida! Você deve escolher números entre 0 e 10."
                 break
-              else
-                a[:notas] << nota
-                aluno_encontrado = true
-                break
               end
+
+              a[:notas] << nota
+              #aluno_encontrado = true
+              
             end
+       end
     end
     puts "==========================\nAluno não encontrado!\n=========================\n"
     when 3
@@ -71,7 +78,7 @@ while escolha != 4 do
         end
 
       end
-
+    
   end
   sleep (3)
   system 'clear'
