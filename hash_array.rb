@@ -14,7 +14,7 @@ puts "Olá Equipe da Escola de Música do Roberto!"
 puts "============================================"
 
 escolha = 0
-alunos = [] #Essa "variável global" tem que ser fora do loop para se guardar o histórico, pois dentro do loop, a cada interação ela zerará.
+alunos = [] #Essa "variável global" tem que ser fora do loop para se guardar o histórico, pois dentro do loop, a cada interação ela zerará!
 
 while escolha != 4 do
    puts "Escolha uma das opções abaixo: \n\n"
