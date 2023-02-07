@@ -4,13 +4,17 @@
 # 3 - Relatório das notas em média dos alunos;
 # 4 - Sair.
 # Faça o programa em app console utilizando variáveis, loop, condicionais e array.
+# Lembrando que para cada "when", se pode criar uma (Função/método),trornando assim o código mais fácil de se entender, corrigir e alterar.
 
+system 'clear'
+require 'byebug'
+debugger
 puts "============================================"
 puts "Olá Equipe da Escola de Música do Roberto!"
 puts "============================================"
 
 escolha = 0
-alunos = [] #Essa variável tem que ser fora do loop para se guardar o histórico, pois dentro do loop a cada interação ela zera.
+alunos = [] #Essa "variável global" tem que ser fora do loop para se guardar o histórico, pois dentro do loop, a cada interação ela zerará.
 
 while escolha != 4 do
    puts "Escolha uma das opções abaixo: \n\n"
@@ -27,12 +31,11 @@ while escolha != 4 do
    case escolha
      when 1
       puts "\n ------Você selecionou a opção 1 ------\n"
-      #aluno = {nome:"", matricula:"", notas:[]}
       print "Digite o nome do aluno: "
       aluno[:nome] = gets.to_s.strip
       print "Digite a matrícula do aluno: "
       aluno[:matricula] = gets.to_i
-      aluno[:notas] = []
+      #aluno[:notas] = []
       alunos.push(aluno) #Ou: alunos << aluno
       puts "Cadastro feito com sucesso!"
       puts "==================================="
@@ -40,7 +43,6 @@ while escolha != 4 do
       puts "==================================="
       puts "Nome completo do aluno: #{aluno[:nome]}"
       puts "Matrícula do aluno: #{aluno[:matricula]}\n"
-       #sleep(2)
      when 2
       puts "\n------ Você selecionou a opção 2 ------\n" 
       print "Antes de entrar com a nota, digite a matrícula do aluno: "
@@ -62,7 +64,7 @@ while escolha != 4 do
             end
        end
     
-    puts "==========================\nAluno não encontrado!\n=========================\n"
+    #puts "==========================\nAluno não encontrado!\n=========================\n"
     when 3
       puts "\n ------ Você selecionou a opção 3 ------"
       puts "RELATÓRIO DE MÉDIAS E NOTAS DOS ALUNOS"
@@ -98,10 +100,6 @@ while escolha != 4 do
       puts "|||   Você selecionou uma opção que não está disponível   |||"
       puts "||||||||    Reinicie ou escolha a opção (4) Sair.    ||||||||"
       puts "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
-  #sleep (3)
-  #system 'clear'
-  #puts alunos
-
     end #"end" do "case"
-    sleep (1)
+    sleep (3)
 end #"end" do "while"
