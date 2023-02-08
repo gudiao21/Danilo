@@ -1,6 +1,6 @@
 # require 'byebug'
 
-#debugger
+# debugger
 
 def calcula_soma
     a = 1 + 1
@@ -13,4 +13,6 @@ def calcula_soma
 end
 
 puts calcula_soma
+
+jkhjkhjjçlkçlkçlklçkçlkçlkoipopoipoiopyuiyiuyuiyttyrtyrtyhghhgfhccbcbmnbnmkkkjiyiuyhjkhjkljuiouoiljklnm,,jkffhvcvbdgfddretfgdfgdggjhgjgjhgjjhgjhgjhgjhgjhgjhgjhgjhgjhgjhgjhjhgjhjhjhgjhgjhgjhgjhgjhgjhgjgjhgjhjhjhgjhjhgjhjhjjhgjhgjhgjjgjhjhjhjhjhgjhjhgjhjhjhgjhjhgjhgjjhjhjhgjhjhjhgjhgjhjhgjhgjhgjhgjhgjhjhjhgjhjhjhgjhgjhgjhjhjhjhjhjhgjhgjhgjhgjhjhgjhjhgjhjhjhgjhjhgjhgjhjhgjhhjggjgjhkhkjhjkhkhkjkjkkjkkkkkkhkjhkjhkjlkjlkjkljlklklçkçlklççllloiçjkjlklggjhgjhgjkljlçloṕpópóiuyoiuoiuuyyujhgjhfhfhhbnvnmbmn,mm.çjkljoiuiouuyyuiggjhyujhgjvbmbmm,,,mlkjlkkjkljkljlkjlklkkllklljllljljllklkjljllçkçlkçlçkçl
 
