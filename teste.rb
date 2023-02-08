@@ -1,5 +1,24 @@
 #require 'byebug'
 
+def captura_aluno
+    aluno = {}
+    puts "Digite o nome do aluno"
+    aluno[:nome] = gets.delete("\n")
+
+    puts "Digite telefone do aluno"
+    aluno[:tel] = gets.delete("\n")
+
+    aluno
+end
+
+def mostrar_alunos(alunos)
+    alunos.each do |aluno|
+        puts "=================================="
+        puts "aluno: #{aluno[:nome]}, telefone: #{aluno[:tel]}"
+        puts "=================================="
+    end    
+end    
+
 loop do
     puts "Bem vindo ao programa:"
     puts "Digite 0 para sair ou 1 para continuar."
@@ -9,20 +28,21 @@ loop do
 
     alunos = []
     3.times do
-        aluno = {}
+        # aluno = {}
 
-        puts "Digite o nome do aluno"
-        aluno[:nome] = gets.delete("\n")
+        # puts "Digite o nome do aluno"
+        # aluno[:nome] = gets.delete("\n")
+ 
+        # puts "Digite telefone do aluno"
+        # aluno[:tel] = gets.delete("\n")
 
-        puts "Digite telefone do aluno"
-        aluno[:tel] = gets.delete("\n")
-
-        alunos << aluno
+        alunos << captura_aluno
     end
-    
-    alunos.each do |aluno|
-        puts "==================================================="
-        puts "aluno: #{aluno[:nome]}, telefone: #{aluno[:tel]}"
-        puts "==================================================="
+        mostrar_alunos(alunos)
+        #alunos.each do |aluno|
+        # puts "==================================================="
+        # puts "aluno: #{aluno[:nome]}, telefone: #{aluno[:tel]}"
+        # puts "==================================================="
     end
 end
+fdsfdsfdsfdsfdsfdsfdsfds
