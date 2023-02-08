@@ -1,3 +1,5 @@
+#Aula: 08 - HASH - RUBY ON RAILS - TORNE-SE UM PROGRAMADOR, que são uma série das aulas gratuítas do Danilo, encontrada em: https://www.torneseumprogramador.com.br/aula?id=eVzx0sjwc1M&aula=8&tipo=ruby&professor=Danilo
+
 #require 'byebug'
 
 def captura_aluno

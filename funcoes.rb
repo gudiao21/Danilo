@@ -31,5 +31,7 @@ def mostrar_na_tela(param)
     "#{param} - Na aula do torne-se um programador"
 end
 
-puts mostrar_na_tela('Danilo')#É uma função "VOID", mesmo tendo o mesmo resultado, entretanto o "puts" ocorre fora da função "def mostrar_na_tela", fazendo com que a mesma RETORNE o "param" para o comando "puts", que é esse que está fora da função. 
+puts mostrar_na_tela('Danilo')#É uma função "VOID", mesmo tendo o mesmo resultado, entretanto o "puts" ocorre fora da função "def mostrar_na_tela", fazendo com que a mesma RETORNE o "param" para o comando "puts", que é esse que está fora da função.
+
+#========================================================================================
 
