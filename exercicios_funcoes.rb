@@ -4,13 +4,14 @@
 # 3 - Calcular a tabuada e mostrar também a frase acima com o nome.
 
 require 'byebug'
-#debugger
+debugger
 
 def calculo(numero)
     multiplicador = 0
+    
     while multiplicador <= 10 do
-        result = numero * multiplicador
-        puts result
+        puts "(#{numero} x #{multiplicador})" = numero * resultado
+        multiplicador += 1
         #puts "#{nome}, vamos lá, guerreiros!"
         #puts "Essa é a taboada do número que você, #{nome}"
     end    
