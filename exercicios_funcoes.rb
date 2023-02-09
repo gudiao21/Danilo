@@ -12,15 +12,23 @@ def calculo(numero)
     
         while multiplicador <= 10 do
             puts "#{numero} x #{multiplicador} = #{numero * multiplicador}"
-            multiplicador += 1
-            #puts "#{nome}, vamos lá, guerreiros!"
-            #puts "Essa é a taboada do número que você, #{nome}"
+            multiplicador += 1 #or:
+            #========================================================
+            #looping com "times": 
+            10.times do |i|
+            #     puts "#{(i + 1)} x #{numero} = #{(i + 1) * numero}"
+            # end
+            #========================================================
+            #looping com "rage":
+            # (1..10).each do |i|
+            #     puts "#{i} x #{numero} = #{i * numero}"
+            # end    
         end    
 end    
 
 def chama_guerreiro
     print "Por favor, antes de te dar o resultado, digite seu nome para que eu saiba para quem farei o cálculo: "
-    @nome = gets.to_s.delete("\n") #"@nome" é uma variável de instância, pois é reconhecida entre objetos, funções e no escopo do código também.
+    @nome = gets.to_s.delete("\n") #"@nome" é uma variável de instância ou de escopo, pois é reconhecida entre objetos, funções e no escopo do código também.
     puts "#{@nome}, vamos lá, guerreiro!"
 end    
 puts "Bem vindo ao programa de cálculo da tabuada!".upcase
