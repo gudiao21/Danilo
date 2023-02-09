@@ -1,8 +1,8 @@
 #Aula: 11 | Funções e Funções recursivas, que se encontra em: https://comunidadefechadatorneseumprog.club.hotmart.com/lesson/k45n1oGNel/11-or-funcoes-e-funcoes-recursivas
 
-#require 'byebug'
+require 'byebug'
 
-#debugger
+debugger
 
 def mostrar_na_tela(numero)
     a = "#{numero} - passado."
