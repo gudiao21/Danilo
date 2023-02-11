@@ -6,6 +6,7 @@
 require 'byebug'
 #debugger
 
+system 'clear'
 @cpfs = []
 puts "\n\n"
 puts "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
@@ -15,6 +16,7 @@ puts "\n\n"
 
 opcao = 0
 while opcao != 2 do
+
     puts "                          Menu:".upcase
     puts "------------------------------------------------------------"
     puts "(1) Entre com o CPF para checar se o colaborador já foi vacinado."
@@ -24,50 +26,62 @@ while opcao != 2 do
 
     def verificar_cpf
         print "Digite o CPF: "
-            cpf = gets.to_i
-            if @cpfs.include?(cpf)
-                puts "+-----------------------------------------+"
-                puts "|  Colaborador já tomou a primeira dose!  |"
-                puts "+-----------------------------------------+"
-                puts "===============================================\n\n"
-                puts "+---------------------------------------------+"
-                puts "|     Voltando para as opções do Menu!        |"
-                puts "+---------------------------------------------+"
-                sleep(4)
-                system "clear"
-            else
-                @cpfs << cpf
-                puts "CPF cadastrado com sucesso!"
-                sleep(1)
-                print "Entre com o nome do Colaborador: "
-                nome = gets.to_s
-                puts "Nome cadastrado com sucesso."
-                sleep(1)
-                print "Entre com o sobrenome do colaborador: "
-                sobrenome = gets.to_s
-                puts "Sobrenome cadastrado com sucesso."
-                puts "===========================================\n\n\n\n"
-            end    
+        cpf = gets.to_i
+        if @cpfs.include?(cpf)
+            puts "+--------Você escolheu a opção 1----------+"
+            puts "|  Colaborador já tomou a primeira dose,  |"
+            puts "|    voltando para as opções do Menu!     |"
+            puts "+-----------------------------------------+"
+            puts "===============================================\n\n"
+            sleep(5)
+            system "clear"
+        else
+            @cpfs << cpf
+            puts "CPF cadastrado com sucesso!"
+            sleep(1)
+            print "Entre com o nome do Colaborador: "
+            nome = gets.to_s
+            puts "Nome cadastrado com sucesso."
+            sleep(1)
+            print "Entre com o sobrenome do colaborador: "
+            sobrenome = gets.to_s
+            puts "Sobrenome cadastrado com sucesso."
+            puts "===========================================\n\n\n\n"
+            sleep 2
+            system 'clear'
+        end    
+    end
+
+    def sair
+        puts "||||||||||Você escolheu a opção 2|||||||||||||"
+        puts "|||   Havan agradece pela colaboração!     |||"
+        puts "||||||||||||||||||||||||||||||||||||||||||||||"
+        puts Time.now
+        puts "\n\n"
+        #break
+    end
+
+    def opcoes_impossiveis
+        puts "=================================================="
+        puts "\n"
+        puts "+-------------- Opção Inválida -----------------+"
+        puts "|  Escolha, apenas, a opção 1 ou 2, por favor:  |"
+        puts "+-----------------------------------------------+"
+        puts "\n\n"
     end    
     
     opcao = gets.to_i
     cadastro = {nome:"", sobrenome:"", cpf:[]}
     case opcao
         when 1
+            #if @cpfs.length = 25000
+               #break
+            #end
             verificar_cpf
         when 2
-            puts ""
-            puts "      Havan agradece pela colaboração!        "
-            puts ""
-            break
+            sair
         else 
-            puts "=================================================="
-            puts "\n"
-            puts "+-----------------------------------------------+"
-            puts "|  Escolha, apenas, a opção 1 ou 2, por favor:  |"
-            puts "+-----------------------------------------------+"
-            puts "\n\n"
-        
+            opcoes_impossiveis        
         
     end
 end
