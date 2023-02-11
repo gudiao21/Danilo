@@ -4,11 +4,22 @@
 # 1- Cadastrar, porém antes do cadastro, verificar se o CPF já foi vacinado. Se o CPF já foi vacinado, mostrar a mensagem: colaborador já tomou a primeira dose. Se não, pedir os outros dados do cadastro do colaborador.
 
 cpfs = []
-puts "Menu:".upcase
+puts "||||||||||||||||||||||||||||||||||||||||||||||||||"
+puts "|| Bem vindo ao programa de vacinação da Havan! ||"
+puts "||||||||||||||||||||||||||||||||||||||||||||||||||"
+puts "\n\n"
+puts "                          Menu:".upcase
 puts "------------------------------------------------------------"
+puts "(1) Entre com o CPF para checar se já foi cadastrado."
+puts "(2) Entre com seu nome."
+puts "(3) Entre com o sobrenome."
+puts "(4) Sair do programa."
 print "Entre com o CPF para checar se já foi cadastrado: "
-cpf = gets.to_i
-#cpfs << cpf
+opcao = 0
+case opcao != 4 do
+when 1
+    print "Digite o CPF: "
+    cpf = gets.to_i
 if cpfs.include?(cpf)
     print "Colaborador já tomou a primeira dose!"
     sleep(3)
