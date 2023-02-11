@@ -5,11 +5,12 @@
 
 require 'byebug'
 #debugger
-system 'clear'
+
 @cpfs = []
-puts "||||||||||||||||||||||||||||||||||||||||||||||||||"
-puts "|| Bem vindo ao programa de vacinação da Havan! ||"
-puts "||||||||||||||||||||||||||||||||||||||||||||||||||"
+puts "\n\n"
+puts "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+puts "||      Bem vindo ao programa de vacinação da Havan!      ||"
+puts "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 puts "\n\n"
 
 opcao = 0
@@ -19,18 +20,21 @@ while opcao != 2 do
     puts "(1) Entre com o CPF para checar se o colaborador já foi vacinado."
     #puts "(2) Entre com o nome do colaborador."
     #puts "(3) Entre com o sobrenome do colaborador."
-    puts "(2) Sair do programa."
-    opcao = gets.to_i
+    puts "(2) Sair do programa.\n\n"
 
-    cadastro = {nome:"", sobrenome:"", cpf:[]}
-    case opcao
-        when 1
-            print "Digite o CPF: "
+    def verificar_cpf
+        print "Digite o CPF: "
             cpf = gets.to_i
             if @cpfs.include?(cpf)
-                puts "Colaborador já tomou a primeira dose!\n\n"
-                puts "==============================================="
-                
+                puts "+-----------------------------------------+"
+                puts "|  Colaborador já tomou a primeira dose!  |"
+                puts "+-----------------------------------------+"
+                puts "===============================================\n\n"
+                puts "+---------------------------------------------+"
+                puts "|     Voltando para as opções do Menu!        |"
+                puts "+---------------------------------------------+"
+                sleep(4)
+                system "clear"
             else
                 @cpfs << cpf
                 puts "CPF cadastrado com sucesso!"
@@ -44,9 +48,17 @@ while opcao != 2 do
                 puts "Sobrenome cadastrado com sucesso."
                 puts "===========================================\n\n\n\n"
             end    
-
+    end    
+    
+    opcao = gets.to_i
+    cadastro = {nome:"", sobrenome:"", cpf:[]}
+    case opcao
+        when 1
+            verificar_cpf
         when 2
-            puts "Havan agradece pela colaboração!"
+            puts ""
+            puts "      Havan agradece pela colaboração!        "
+            puts ""
             break
         else 
             puts "=================================================="
