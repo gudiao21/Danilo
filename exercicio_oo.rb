@@ -28,28 +28,33 @@ while opcao != 2 do
             print "Digite o CPF: "
             cpf = gets.to_i
             if @cpfs.include?(cpf)
-                puts "Colaborador já tomou a primeira dose!"
-                sleep(3)
+                puts "Colaborador já tomou a primeira dose!\n\n"
+                puts "==============================================="
                 
             else
                 @cpfs << cpf
                 puts "CPF cadastrado com sucesso!"
-                sleep(3)
+                sleep(1)
                 print "Entre com o nome do Colaborador: "
                 nome = gets.to_s
                 puts "Nome cadastrado com sucesso."
-                sleep(2)
+                sleep(1)
                 print "Entre com o sobrenome do colaborador: "
                 sobrenome = gets.to_s
                 puts "Sobrenome cadastrado com sucesso."
-                sleep(2)
+                puts "===========================================\n\n\n\n"
             end    
 
         when 2
             puts "Havan agradece pela colaboração!"
             break
-        #when != (1 && 2)
-            #puts "Escolha, apenas, a opção 1 ou 2, por favor!"
+        else 
+            puts "=================================================="
+            puts "\n"
+            puts "+-----------------------------------------------+"
+            puts "|  Escolha, apenas, a opção 1 ou 2, por favor:  |"
+            puts "+-----------------------------------------------+"
+            puts "\n\n"
         
         
     end
