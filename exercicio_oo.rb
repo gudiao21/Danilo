@@ -3,6 +3,8 @@
 # Passos:
 # 1- Cadastrar, porém antes do cadastro, verificar se o CPF já foi vacinado. Se o CPF já foi vacinado, mostrar a mensagem: colaborador já tomou a primeira dose. Se não, pedir os outros dados do cadastro do colaborador.
 
+require 'byebug'
+#debugger
 system 'clear'
 @cpfs = []
 puts "||||||||||||||||||||||||||||||||||||||||||||||||||"
@@ -18,26 +20,37 @@ while opcao != 2 do
     #puts "(2) Entre com o nome do colaborador."
     #puts "(3) Entre com o sobrenome do colaborador."
     puts "(2) Sair do programa."
+    opcao = gets.to_i
 
     cadastro = {nome:"", sobrenome:"", cpf:[]}
     case opcao
-    when 1
-        print "Digite o CPF: "
-        cpf = gets.to_i
-        if @cpfs.include?(cpf)
-            print "Colaborador já tomou a primeira dose!"
-            sleep(3)
-            break
-        else
-            @cpfs << cpf
-            print "CPF cadastrado com sucesso!"
-            sleep(3)
-            print "Entre com o nome do Colaborador: "
-            nome = gets.to_s
-            print "Entre com o sobrenome do colaborador: "
-            sobrenome = gets.to_s
-            sleep(2)
+        when 1
+            print "Digite o CPF: "
+            cpf = gets.to_i
+            if @cpfs.include?(cpf)
+                puts "Colaborador já tomou a primeira dose!"
+                sleep(3)
+                
+            else
+                @cpfs << cpf
+                puts "CPF cadastrado com sucesso!"
+                sleep(3)
+                print "Entre com o nome do Colaborador: "
+                nome = gets.to_s
+                puts "Nome cadastrado com sucesso."
+                sleep(2)
+                print "Entre com o sobrenome do colaborador: "
+                sobrenome = gets.to_s
+                puts "Sobrenome cadastrado com sucesso."
+                sleep(2)
+            end    
 
-        end
+        when 2
+            puts "Havan agradece pela colaboração!"
+            break
+        #when != (1 && 2)
+            #puts "Escolha, apenas, a opção 1 ou 2, por favor!"
+        
+        
     end
 end
