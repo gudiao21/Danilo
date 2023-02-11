@@ -10,20 +10,31 @@ puts "||||||||||||||||||||||||||||||||||||||||||||||||||"
 puts "\n\n"
 puts "                          Menu:".upcase
 puts "------------------------------------------------------------"
-puts "(1) Entre com o CPF para checar se já foi cadastrado."
-puts "(2) Entre com seu nome."
-puts "(3) Entre com o sobrenome."
-puts "(4) Sair do programa."
-print "Entre com o CPF para checar se já foi cadastrado: "
+puts "(1) Entre com o CPF para checar se o colaborador já foi vacinado."
+#puts "(2) Entre com o nome do colaborador."
+#puts "(3) Entre com o sobrenome do colaborador."
+puts "(2) Sair do programa."
+
 opcao = 0
-case opcao != 4 do
-when 1
-    print "Digite o CPF: "
-    cpf = gets.to_i
-if cpfs.include?(cpf)
-    print "Colaborador já tomou a primeira dose!"
-    sleep(3)
-else
-    cpfs << cpf
-    print "CPF cadastrado com sucesso! Pode ir tomar a sua vacina. "
+while opcao != 2 do
+    case opcao
+    when 1
+        print "Digite o CPF: "
+        cpf = gets.to_i
+        if cpfs.include?(cpf)
+            print "Colaborador já tomou a primeira dose!"
+            sleep(3)
+            break
+        else
+            cpfs << cpf
+            print "CPF cadastrado com sucesso!"
+            sleep(3)
+            print "Entre com o nome do Colaborador: "
+            nome = gets.to_s
+            print "Entre com o sobrenome: "
+            sobrenome = gets.to_s
+            sleep(2)
+
+        end
+    end
 end
