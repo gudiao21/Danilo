@@ -8,7 +8,7 @@
 
 system 'clear'
 require 'byebug'
-debugger
+#debugger
 puts "============================================"
 puts "Olá Equipe da Escola de Música do Roberto!"
 puts "============================================"
@@ -35,7 +35,7 @@ while escolha != 4 do
       aluno[:nome] = gets.to_s.strip
       print "Digite a matrícula do aluno: "
       aluno[:matricula] = gets.to_i
-      #aluno[:notas] = []
+      #aluno[:notas] = [] #Comentada porque já foi declarada na linha 28.
       alunos.push(aluno) #Ou: alunos << aluno
       puts "Cadastro feito com sucesso!"
       puts "==================================="
