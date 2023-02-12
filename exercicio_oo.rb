@@ -6,6 +6,7 @@
 require 'byebug'
 #debugger
 
+#class Vacinacao
 system 'clear'
 @cpfs = []
 puts "\n\n"
@@ -85,3 +86,4 @@ while opcao != 2 do
         
     end
 end
+#end
