@@ -15,16 +15,17 @@ class Colaborador #Segunda coisa que o professor fez.
         attr_accessor :nome, :sobrenome, :cpf, :vacinado #Quarta coisa feita.
 
     def self.busca_por_cpf(cpf) #Sexto, é um método de classe, caracterizado pelo "self", não precisando dar um "new" para usar, e sim o "nome_da_classe.nome_do_método".Ex: "Colaborador.busca_por _cpf". É método de classe por se tratar de uma busca por TODOS os colaboradores.
-        ControladorVacina.colaboradores.find{|colaborador| colaborador.cpf == cpf} #Mesma coisa que as 6 linhas abaixo.
-        # colaborador_encontrado = nil
-    #     ControladorVacina.colaboradores.each do |colaborador|
-    #         if colaborador.cpf == cpf
-    #             colaborador_encontrado = colaborador
-    #             break
-    #         end
+        #ControladorVacina.colaboradores.find{|colaborador| colaborador.cpf == cpf} #Mesma coisa que as 6 linhas abaixo.
+        colaborador_encontrado = nil
+         ControladorVacina.colaboradores.each do |colaborador|
+             if colaborador.cpf == cpf
+                 colaborador_encontrado = colaborador
+                 break
+             end
+         end
+         colaborador_encontrado #Retorna o Colaborador_encontrado
     end    
-    
-    colaborador_encontrado #Retorna o Colaborador_encontrado
+        
     
     def mostrar #Terceira coisa que o professor fez.É um método de instância por ser um "mostrar" para cada colaborador.
         puts "Nome: #{@nome}"
@@ -32,9 +33,6 @@ class Colaborador #Segunda coisa que o professor fez.
         puts "CPF: #{@cpf}"
         puts "Vacinado(a): #{(@vacinado ? "Sim" : "Não")}" #"Operador Ternário". Seria um "if" com boleano, ou seja, se vacinado true, então "Sim", senão "Não".Tudo em uma linha somente.
     end    
-
-
-
 end
 
 class ControladorVacina #Primeira coisa que o professor fez.
@@ -44,14 +42,44 @@ class ControladorVacina #Primeira coisa que o professor fez.
         @@colaboradores = []
     end
 
-    def self.menu #O "self" transforma o método "menu" em "método de classe".Vai servir para várias instâncias. O chamando por: "ControladorVacina.menu".
+    def self.menu #O "self" transforma o método "menu" em "método de classe" ou "estático".Vai servir para várias instâncias. O chamando por: "ControladorVacina.menu".
         puts "\nO que deseja fazer? \n\n"
         puts "(1) Cadastrar colaborador"
         puts "(2) Localizar colaborador"
         puts "(3) Listar colaboradores"
         puts "(4) Sair"
         print "\nSelecione a opção: "
+        ControladorVacina.captura_item_menu
     end
+
+    def self.captura_item_menu
+        opcao = gets.to_i
+        case opcao
+        when 1
+            ControladorVacina.cadastrar_colaborador
+        when 2
+            ControladorVacina.buscar_colaborador
+        when 3
+            ControladorVacina.listar_colaboradores
+        end
+    end
+
+    def self.cadastrar_colaborador
+        
+    end
+    
+    def self.buscar_colaborador
+        puts "\nDigite o CPF do colaorador: \n\n"
+        cpf= gets.to_i.strip
+        colaborador = Colaborador.busca_por_cpf(cpf)#Retorna um item instanciado da classe "Colaborador".
+        unless colaborador.nil?
+            colaborador.mostrar
+        end    
+    end
+    
+    def self.listar_colaboradores
+
+    end    
     
     def self.init #Método de classe para iniciar o programa.
         ControladorVacina.menu
