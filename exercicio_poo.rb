@@ -11,14 +11,27 @@
 #   Se o cpf já foi vacinado, mostrar a mensagem colaborador já tomou a primeira dose
 #   Se não pedir os outros dados do cadastro do colaborador
 
-class Colaborador #Primeira coisa que o professor fez.
-    attr_accessor :nome, :sobrenome, :cpf, :vacinado
+class Colaborador #Segunda coisa que o professor fez.
+        attr_accessor :nome, :sobrenome, :cpf, :vacinado #Quarta coisa feita.
 
-    def mostrar #Segunda coisa que o professor fez.
+    def self.busca_por_cpf #Sexto, é um método de classe, caracterizado pelo "self", não precisando dar um "new" para usar, e sim o "nome_da_classe.nome_do_método".Ex: "Colaborador.busca_por _cpf".
+        ControladorVacina.colaboradores.each do |colaborador|
+            colaborador_encontrado = nil
+            if colaborador.cpf == cpf
+                colaborador_encontrado = colaborador
+                break
+            end
+    end    
+    
+    colaborador_encontrado
+    end
+        
+
+    def mostrar #Terceira coisa que o professor fez.
         puts "Nome: #{@nome}"
         puts "Sobrenome: #{@sobrenome}"
         puts "CPF: #{@cpf}"
-        puts "Vacinado(a): #{(@vacinado ? "Sim" : "Não")}" #Operador Ternário. Seria um "if" com boleano, ou seja, se vacinado true, então "Sim", senão "Não".
+        puts "Vacinado(a): #{(@vacinado ? "Sim" : "Não")}" #"Operador Ternário". Seria um "if" com boleano, ou seja, se vacinado true, então "Sim", senão "Não".Tudo em uma linha somente.
     end    
 
 
@@ -26,11 +39,14 @@ class Colaborador #Primeira coisa que o professor fez.
 end
 
 class ControladorVacina #Primeira coisa que o professor fez.
+    @@colaboradores = []
+
+    def self.colaboradores #Quinta
+        @@colaboradores = []
+    end    
 
 
-
-
-
+end
 
 
 
