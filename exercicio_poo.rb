@@ -71,7 +71,7 @@ class ControladorVacina #Primeira coisa que o professor fez.
     def self.buscar_colaborador
         puts "\nDigite o CPF do colaorador: \n\n"
         cpf= gets.to_i.strip
-        colaborador = Colaborador.busca_por_cpf(cpf)#Retorna um item instanciado da classe "Colaborador".
+        colaborador = Colaborador.busca_por_cpf(cpf)#Retorna um item instanciado da classe "Colaborador"
         unless colaborador.nil?
             colaborador.mostrar
         end    
