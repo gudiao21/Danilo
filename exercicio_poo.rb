@@ -14,20 +14,19 @@
 class Colaborador #Segunda coisa que o professor fez.
         attr_accessor :nome, :sobrenome, :cpf, :vacinado #Quarta coisa feita.
 
-    def self.busca_por_cpf #Sexto, é um método de classe, caracterizado pelo "self", não precisando dar um "new" para usar, e sim o "nome_da_classe.nome_do_método".Ex: "Colaborador.busca_por _cpf".
-        ControladorVacina.colaboradores.each do |colaborador|
-            colaborador_encontrado = nil
-            if colaborador.cpf == cpf
-                colaborador_encontrado = colaborador
-                break
-            end
+    def self.busca_por_cpf(cpf) #Sexto, é um método de classe, caracterizado pelo "self", não precisando dar um "new" para usar, e sim o "nome_da_classe.nome_do_método".Ex: "Colaborador.busca_por _cpf". É método de classe por se tratar de uma busca por TODOS os colaboradores.
+        ControladorVacina.colaboradores.find{|colaborador| colaborador.cpf == cpf} #Mesma coisa que as 6 linhas abaixo.
+        # colaborador_encontrado = nil
+    #     ControladorVacina.colaboradores.each do |colaborador|
+    #         if colaborador.cpf == cpf
+    #             colaborador_encontrado = colaborador
+    #             break
+    #         end
     end    
     
-    colaborador_encontrado
-    end
-        
-
-    def mostrar #Terceira coisa que o professor fez.
+    colaborador_encontrado #Retorna o Colaborador_encontrado
+    
+    def mostrar #Terceira coisa que o professor fez.É um método de instância por ser um "mostrar" para cada colaborador.
         puts "Nome: #{@nome}"
         puts "Sobrenome: #{@sobrenome}"
         puts "CPF: #{@cpf}"
@@ -41,13 +40,25 @@ end
 class ControladorVacina #Primeira coisa que o professor fez.
     @@colaboradores = []
 
-    def self.colaboradores #Quinta
+    def self.colaboradores #Quinta. É um método de classe para retornar o colaborador para várias instâncias.
         @@colaboradores = []
-    end    
+    end
 
+    def self.menu #O "self" transforma o método "menu" em "método de classe".Vai servir para várias instâncias. O chamando por: "ControladorVacina.menu".
+        puts "\nO que deseja fazer? \n\n"
+        puts "(1) Cadastrar colaborador"
+        puts "(2) Localizar colaborador"
+        puts "(3) Listar colaboradores"
+        puts "(4) Sair"
+        print "\nSelecione a opção: "
+    end
+    
+    def self.init #Método de classe para iniciar o programa.
+        ControladorVacina.menu
+    end
+end    
 
-end
-
+    ControladorVacina.init
 
 
 
