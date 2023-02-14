@@ -89,6 +89,7 @@ class ControladorVacina #Primeira coisa que o professor fez.
             puts "O colaborador do cpf #{cpf} já foi vacinado."
             puts "==============================================="
             colaborador.mostrar
+            ControladorVacina.pausa
         else
             #puts "Colaborador no cpf #{cpf} não encontrado."
             ControladorVacina.incluir_colaborador(cpf)
@@ -100,10 +101,16 @@ class ControladorVacina #Primeira coisa que o professor fez.
         cpf= gets.strip.to_i
         colaborador = Colaborador.busca_por_cpf(cpf)#Retorna um item instanciado da classe "Colaborador"
         system "clear"
-        unless colaborador.nil? #Se o colaborador for != de nulo ....
-            colaborador.mostrar
+        unless colaborador.nil? #Se o colaborador(CPF) for != de nulo ...
+            colaborador.mostrar #Mostra o CPF ?
         else
-            puts "Colaborador no cpf #{cpf} não encontrado."    
+            puts "Colaborador no cpf #{cpf} não encontrado."
+            puts "Deseja cadastrar o mesmo? (S/N)"
+            opcao = gets.strip.upcase
+            if opcao == "S"
+                ControladorVacina.incluir_colaborador(cpf)
+            end   
+
         end    
     end
     
@@ -111,14 +118,19 @@ class ControladorVacina #Primeira coisa que o professor fez.
         system "clear"
         
         if ControladorVacina.colaboradores.length == 0
-            puts "Não temos nenhum colaborador vacinado em nossa base"
-            sleep(2)
+            puts "Não temos nenhum colaborador vacinado em nossa base."
+            ControladorVacina.pausa
             return # Retorna para o menu?
         end
 
         ControladorVacina.colaboradores.each do |colaborador| #"colaboradores" seria a variável global na linha 39.
             puts "========================================="
             colaborador.mostrar #O que seria isso?
+        end
+        
+        def self.pausa
+            sleep(2)
+            system "clear"
         end
     end    
     
