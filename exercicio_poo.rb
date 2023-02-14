@@ -95,9 +95,9 @@ class ControladorVacina #Primeira coisa que o professor fez.
         end
     end
     
-    def self.buscar_colaborador(cpf)
+    def self.buscar_colaborador
         puts "\nDigite o CPF do colaorador: \n\n"
-        cpf= gets.to_i.strip
+        cpf= gets.strip.to_i
         colaborador = Colaborador.busca_por_cpf(cpf)#Retorna um item instanciado da classe "Colaborador"
         system "clear"
         unless colaborador.nil? #Se o colaborador for != de nulo ....
@@ -109,15 +109,22 @@ class ControladorVacina #Primeira coisa que o professor fez.
     
     def self.listar_colaboradores
         system "clear"
+        
+        if ControladorVacina.colaboradores.length == 0
+            puts "Não temos nenhum colaborador vacinado em nossa base"
+            sleep(2)
+            return # Retorna para o menu?
+        end
+
         ControladorVacina.colaboradores.each do |colaborador| #"colaboradores" seria a variável global na linha 39.
             puts "========================================="
-            colaborador.mostrar
+            colaborador.mostrar #O que seria isso?
         end
     end    
     
     def self.init #Método de classe para iniciar o programa.
         while(true)
-            opcao = ControladorVacina.menu
+            opcao = ControladorVacina.menu #?
             ControladorVacina.menu
             break if opcao == SAIR_DO_SISTEMA # "SAIR_DO_SISTEMA" definido na linha 40.
         end    
