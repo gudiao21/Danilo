@@ -36,7 +36,8 @@ class Colaborador #Segunda coisa que o professor fez.
 end
 
 class ControladorVacina #Primeira coisa que o professor fez.
-    @@colaboradores = []
+    @@colaboradores = [] #Variável global.
+    SAIR_DO_SISTEMA = 4
 
     def self.colaboradores #Quinta. É um método de classe para retornar o colaborador para várias instâncias.
         @@colaboradores
@@ -61,11 +62,13 @@ class ControladorVacina #Primeira coisa que o professor fez.
             ControladorVacina.buscar_colaborador
         when 3
             ControladorVacina.listar_colaboradores
+        when SAIR_DO_SISTEMA # "SAIR_DO_SISTEMA" é uma constante,que foi definido como 4 na linha 40.
+            return SAIR_DO_SISTEMA
         end
     end
 
     def self.incluir_colaborador(cpf)
-        colaborador = Colaborador.new #Criou-se uma instância.
+        colaborador = Colaborador.new #Criou-se uma instância, nascendo assim um novo objeto chamado "colaborador".
         colaborador.cpf = cpf
         puts "Digite o nome do colaborador. \n\n"
         colaborador.nome = gets.strip #Usa o objeto "colaborador.nome" e não o hash.
@@ -111,7 +114,11 @@ class ControladorVacina #Primeira coisa que o professor fez.
     end    
     
     def self.init #Método de classe para iniciar o programa.
-        ControladorVacina.menu
+        while(true)
+            opcao = ControladorVacina.menu
+            ControladorVacina.menu
+            break if opcao == SAIR_DO_SISTEMA # "SAIR_DO_SISTEMA" definido na linha 40.
+        end    
     end
 end    
 
