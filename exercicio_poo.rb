@@ -11,11 +11,14 @@
 #   Se o cpf já foi vacinado, mostrar a mensagem colaborador já tomou a primeira dose
 #   Se não pedir os outros dados do cadastro do colaborador
 
+require "byebug"
+
 class Colaborador #Segunda coisa que o professor fez.
         attr_accessor :nome, :sobrenome, :cpf, :vacinado #Quarta coisa feita. ":vacinado" será referido como boleano.
 
     def self.busca_por_cpf(cpf) #Sexto, é um método de classe, caracterizado pelo "self", não precisando dar um "new" para usar, e sim o "nome_da_classe.nome_do_método".Ex: "Colaborador.busca_por _cpf". É método de classe por se tratar de uma busca por TODOS os colaboradores.
         #ControladorVacina.colaboradores.find{|colaborador| colaborador.cpf == cpf} #Mesma coisa que as 6 linhas abaixo.
+        
         colaborador_encontrado = nil
         ControladorVacina.colaboradores.each do |colaborador|
              if colaborador.cpf == cpf
@@ -78,27 +81,33 @@ class ControladorVacina #Primeira coisa que o professor fez.
         colaborador.vacinado = true #"vacinado" se refere à linha 15: ":vacinado". Usa o objeto "colaborador.vacinado" e não o hash".
 
         ControladorVacina.colaboradores << colaborador
+        puts "============================================================"
+        return colaborador #Depois de cadastrar, mostrar o mesmo na tela.
     end
     
     def self.cadastrar_colaborador
         puts "\nDigite o CPF do colaborador? \n\n"
         cpf = gets.strip
+        #debugger
+        
         colaborador = Colaborador.busca_por_cpf(cpf)
-        unless colaborador.nil?
+        if colaborador.nil? #Se colaborador não existe, ou seja, é nulo ...
+            colaborador = ControladorVacina.incluir_colaborador(cpf)
+            puts "==============================================="
+            colaborador.mostrar
+            ControladorVacina.pausa
+        else #Se o colaborador já estiver na base de dados ....
             puts "==============================================="
             puts "O colaborador do cpf #{cpf} já foi vacinado."
             puts "==============================================="
             colaborador.mostrar
             ControladorVacina.pausa
-        else
-            #puts "Colaborador no cpf #{cpf} não encontrado."
-            ControladorVacina.incluir_colaborador(cpf)
         end
     end
     
     def self.buscar_colaborador
-        puts "\nDigite o CPF do colaorador: \n\n"
-        cpf= gets.strip.to_i
+        puts "\nDigite o CPF do colaborador: \n\n"
+        cpf = gets.strip
         colaborador = Colaborador.busca_por_cpf(cpf)#Retorna um item instanciado da classe "Colaborador"
         
         system "clear"
@@ -106,12 +115,14 @@ class ControladorVacina #Primeira coisa que o professor fez.
             colaborador.mostrar #Mostra o CPF ?
             ControladorVacina.pausa
         else
-            puts "Colaborador no cpf #{cpf} não encontrado."
+            puts "Colaborador do cpf #{cpf} não encontrado."
             puts "Deseja cadastrar o mesmo? (S/N)"
             opcao = gets.strip.upcase
             if opcao == "S"
                 colaborador = ControladorVacina.incluir_colaborador(cpf)
-                colaborador.mostrar
+                puts "====================================="
+                colaborador.mostrar #Mostra: nome, sobrenome e cpf na tela, pois são do colaborador.
+                ControladorVacina.pausa
             end   
         end    
     end
@@ -129,10 +140,11 @@ class ControladorVacina #Primeira coisa que o professor fez.
             puts "========================================="
             colaborador.mostrar #O que seria isso?
         end
-    end   
+        ControladorVacina.pausa #Depois de cadastrar, mostra pausado.
+    end
         
         def self.pausa
-            sleep(2)
+            sleep(3)
             system "clear"
         end
         
