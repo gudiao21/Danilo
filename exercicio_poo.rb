@@ -39,7 +39,7 @@ class ControladorVacina #Primeira coisa que o professor fez.
     @@colaboradores = []
 
     def self.colaboradores #Quinta. É um método de classe para retornar o colaborador para várias instâncias.
-        @@colaboradores = []
+        @@colaboradores
     end
 
     def self.menu #O "self" transforma o método "menu" em "método de classe" ou "estático".Vai servir para várias instâncias. O chamando por: "ControladorVacina.menu".
@@ -64,21 +64,43 @@ class ControladorVacina #Primeira coisa que o professor fez.
         end
     end
 
-    def self.cadastrar_colaborador
+    def self.incluir_colaborador(cpf)
+        colaborador = Colaborador.new
         
+    end    
+    
+    def self.cadastrar_colaborador
+        puts "\nDigite o CPF do colaborador? \n\n"
+        cpf = gets.strip
+        coloaborador = Colaborador.busca_por_cpf(cpf)
+        unless colaborador.nil?
+            puts "==============================================="
+            puts "O colaborador do cpf #{cpf} já foi vacinado."
+            puts "==============================================="
+            colaborador.mostrar
+        else
+            puts "Colaborador no cpf #{cpf} não encontrado."
+            ControladorVacina.incluir_colaborador(cpf)
+        end        
     end
     
     def self.buscar_colaborador
         puts "\nDigite o CPF do colaorador: \n\n"
         cpf= gets.to_i.strip
         colaborador = Colaborador.busca_por_cpf(cpf)#Retorna um item instanciado da classe "Colaborador"
-        unless colaborador.nil?
+        system "clear"
+        unless colaborador.nil? #Se o colaborador for != de nulo ....
             colaborador.mostrar
+        else
+            puts "Colaborador no cpf #{cpf} não encontrado."    
         end    
     end
     
     def self.listar_colaboradores
-
+        system "clear"
+        ControladorVacina.colaboradores.each do |colaborador|
+        puts "========================================="
+        colaborador.mostrar
     end    
     
     def self.init #Método de classe para iniciar o programa.
