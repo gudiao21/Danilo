@@ -17,12 +17,12 @@ class Colaborador #Segunda coisa que o professor fez.
     def self.busca_por_cpf(cpf) #Sexto, é um método de classe, caracterizado pelo "self", não precisando dar um "new" para usar, e sim o "nome_da_classe.nome_do_método".Ex: "Colaborador.busca_por _cpf". É método de classe por se tratar de uma busca por TODOS os colaboradores.
         #ControladorVacina.colaboradores.find{|colaborador| colaborador.cpf == cpf} #Mesma coisa que as 6 linhas abaixo.
         colaborador_encontrado = nil
-         ControladorVacina.colaboradores.each do |colaborador|
+        ControladorVacina.colaboradores.each do |colaborador|
              if colaborador.cpf == cpf
                  colaborador_encontrado = colaborador
                  break
              end
-         end
+        end
          colaborador_encontrado #Retorna o Colaborador_encontrado
     end    
         
@@ -50,7 +50,7 @@ class ControladorVacina #Primeira coisa que o professor fez.
         puts "(3) Listar colaboradores"
         puts "(4) Sair"
         print "\nSelecione a opção: "
-        ControladorVacina.captura_item_menu
+        ControladorVacina.captura_item_menu #Está logo abaixo.
     end
 
     def self.captura_item_menu
@@ -65,6 +65,7 @@ class ControladorVacina #Primeira coisa que o professor fez.
         when SAIR_DO_SISTEMA # "SAIR_DO_SISTEMA" é uma constante,que foi definido como 4 na linha 40.
             return SAIR_DO_SISTEMA
         end
+        return 0
     end
 
     def self.incluir_colaborador(cpf)
@@ -82,7 +83,7 @@ class ControladorVacina #Primeira coisa que o professor fez.
     def self.cadastrar_colaborador
         puts "\nDigite o CPF do colaborador? \n\n"
         cpf = gets.strip
-        coloaborador = Colaborador.busca_por_cpf(cpf)
+        colaborador = Colaborador.busca_por_cpf(cpf)
         unless colaborador.nil?
             puts "==============================================="
             puts "O colaborador do cpf #{cpf} já foi vacinado."
@@ -108,9 +109,10 @@ class ControladorVacina #Primeira coisa que o professor fez.
     
     def self.listar_colaboradores
         system "clear"
-        ControladorVacina.colaboradores.each do |colaborador|
-        puts "========================================="
-        colaborador.mostrar
+        ControladorVacina.colaboradores.each do |colaborador| #"colaboradores" seria a variável global na linha 39.
+            puts "========================================="
+            colaborador.mostrar
+        end
     end    
     
     def self.init #Método de classe para iniciar o programa.
@@ -120,9 +122,9 @@ class ControladorVacina #Primeira coisa que o professor fez.
             break if opcao == SAIR_DO_SISTEMA # "SAIR_DO_SISTEMA" definido na linha 40.
         end    
     end
-end    
+end
 
-    ControladorVacina.init
+    ControladorVacina.init #chamará o método ou função "init", que está logo acima.
 
 
 
