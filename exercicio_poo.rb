@@ -12,7 +12,7 @@
 #   Se não pedir os outros dados do cadastro do colaborador
 
 class Colaborador #Segunda coisa que o professor fez.
-        attr_accessor :nome, :sobrenome, :cpf, :vacinado #Quarta coisa feita.
+        attr_accessor :nome, :sobrenome, :cpf, :vacinado #Quarta coisa feita. ":vacinado" será referido como boleano.
 
     def self.busca_por_cpf(cpf) #Sexto, é um método de classe, caracterizado pelo "self", não precisando dar um "new" para usar, e sim o "nome_da_classe.nome_do_método".Ex: "Colaborador.busca_por _cpf". É método de classe por se tratar de uma busca por TODOS os colaboradores.
         #ControladorVacina.colaboradores.find{|colaborador| colaborador.cpf == cpf} #Mesma coisa que as 6 linhas abaixo.
@@ -65,9 +65,16 @@ class ControladorVacina #Primeira coisa que o professor fez.
     end
 
     def self.incluir_colaborador(cpf)
-        colaborador = Colaborador.new
-        
-    end    
+        colaborador = Colaborador.new #Criou-se uma instância.
+        colaborador.cpf = cpf
+        puts "Digite o nome do colaborador. \n\n"
+        colaborador.nome = gets.strip #Usa o objeto "colaborador.nome" e não o hash.
+        puts "Digite o sobrenome do colaborador. \n\n"
+        colaborador.sobrenome = gets.strip #Usa o objeto "colaborador.sobrenome" e não o hash.
+        colaborador.vacinado = true #"vacinado" se refere à linha 15: ":vacinado". Usa o objeto "colaborador.vacinado" e não o hash".
+
+        ControladorVacina.colaboradores << colaborador
+    end
     
     def self.cadastrar_colaborador
         puts "\nDigite o CPF do colaborador? \n\n"
@@ -79,12 +86,12 @@ class ControladorVacina #Primeira coisa que o professor fez.
             puts "==============================================="
             colaborador.mostrar
         else
-            puts "Colaborador no cpf #{cpf} não encontrado."
+            #puts "Colaborador no cpf #{cpf} não encontrado."
             ControladorVacina.incluir_colaborador(cpf)
-        end        
+        end
     end
     
-    def self.buscar_colaborador
+    def self.buscar_colaborador(cpf)
         puts "\nDigite o CPF do colaorador: \n\n"
         cpf= gets.to_i.strip
         colaborador = Colaborador.busca_por_cpf(cpf)#Retorna um item instanciado da classe "Colaborador"
