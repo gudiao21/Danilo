@@ -2,24 +2,40 @@
 # características da classe: NOME, COR, ESPECIAL(S/N)
 # Funções da classe: COZINHAR(para uma única instância), COZINHAR TODOS.
 
+require "byebug"
+#debugger
 class Bolo
-    attr_accessor :nome :cor :especial #Já cria os "setters" e "getters".
+    attr_accessor :nome, :cor, :especial #Já cria os "setters" e "getters".
 
     def cozinhar
         print "Digite o nome do bolo: "
-        puts "Nome: #{@nome}"
+        @nome = gets.to_s.strip
         print "Digite a cor do bolo: "
-        puts "Cor: #{cor}"
-        puts "Especial"
+        @cor = gets.to_s.strip
+        Bolo.mostrar_bolo
+    end
+
+    def mostrar_bolo
+        puts "\n============================="
+        puts "Nome do bolo: #{@nome}"
+        puts "Cor do bolo: #{@cor}"
+        Bolo.especial_ou_nao
+        puts "=============================\n"
     end
 
     def especial_ou_nao
         opcao = nil
         print "O bolo é especial ou não? (S/N)"
         opcao = gets.upcase.strip
-        if opcao == "S"
-            puts "Então o bolo é especial!"
+        case opcao
+        when "S"
+            puts "Então o bolo é especial! Obaaaa."
+        when "N"
+            puts "Então o bolo não é especial,ou seja, é basicão! Afff."
         else
-            puts "Então esse bolo não é especial, ou seja, é um bolo basicão! Afff."
+            puts "Opção não válida, entre com (S) ou (N), por favor!"
         end
     end
+end
+
+Bolo.new.cozinhar
