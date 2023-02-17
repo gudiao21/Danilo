@@ -1,6 +1,6 @@
 # Crie um programa que tenha uma receita de bolo, esta receita precisa ter informações sobre o "BOLO FEITO" e informações para "TODOS OS BOLOS". Crie uma classe onde vc terá "PROPRIEDADES DE UM BOLO", o "MÉTODO COZINHAR O BOLO INSTANCIADO" e "COZINHAR VÁRIOS BOLOS" passados por um array.
 # características da classe: NOME, COR, ESPECIAL(S/N).
-# Funções da classe: COZINHAR(para uma única instância), COZINHAR TODOS.
+# Funções da classe: cozinhar(para uma única instância), cozinhar_todos.
 
 require "byebug"
 #debugger
@@ -22,11 +22,13 @@ class Bolo
             puts "======== PELO MÉTODO DE CLASSE: =========="
             bolo.cozinhar
             puts "=========================================="
+            #OBS: "MÉTODO DE CLASSE" tem que ter o "self", se não tiver não conseguirei chamá-lo!
         end    
     end    
 end
 
 system 'clear'
+#Abaixo é um método de Instância:
 bolo_de_laranja = Bolo.new #Cria uma instância apenas para o bolo de laranja, sendo assim, uma instância pra um tipo.
 puts "======= PELO MÉTODO DE INSTÂNCIA ========"
 bolo_de_laranja.nome = "Bolo de Laranja"
@@ -34,18 +36,20 @@ bolo_de_laranja.cor = "Laranja"
 bolo_de_laranja.especial = "SIM"
 bolo_de_laranja.cozinhar
 
+#Abaixo é um método de Instância:
 bolo_de_chocolate = Bolo.new #Cria uma instância apenas pro bolo de chocolate, sendo assim, uma instância pra um tipo.
 puts "========================================="
 bolo_de_chocolate.nome = "Bolo de chocolate"
 bolo_de_chocolate.cor = "Marrom"
 bolo_de_chocolate.especial = "NÃO"
 bolo_de_chocolate.cozinhar
-puts "=========================================\n\n"
+puts "==========================================\n\n"
 
+#Abaixo é um "método de Classe":
 Bolo.cozinhar_todos([bolo_de_laranja, bolo_de_chocolate])#Não é uma instância, pois é um método que serve para todos os bolos, sendo assim "cozinhar_todos" um "MÉTODO DE CLASSE".
 
 
-
+#========================================================================================================================================================================================
 # class Bolo
 #     attr_accessor :nome, :cor, :especial #Já cria os "setters" e "getters".
 
