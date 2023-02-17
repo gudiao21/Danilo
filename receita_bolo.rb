@@ -11,27 +11,38 @@ class Bolo
 
     def cozinhar
         puts "Nome: #{@nome}"
-        puts "Cor #{@cor}"
+        puts "Cor: #{@cor}"
         puts "Especial: #{@especial}"
     end
 
 #Criando um método para todas as instâncias, ou seja, para todo mundo, sendo assim um "MÉTODO DE CLASSE", tendo que estar dentro da CLASSE:
 
-
-
+    def self.cozinhar_todos(bolos) #Método para não só 1 bolo e sim para todos os bolos. Por isso "MÉTODO DE CLASSE".
+        bolos.each do |bolo|
+            puts "======== PELO MÉTODO DE CLASSE: =========="
+            bolo.cozinhar
+            puts "=========================================="
+        end    
+    end    
 end
 
+system 'clear'
 bolo_de_laranja = Bolo.new #Cria uma instância apenas para o bolo de laranja, sendo assim, uma instância pra um tipo.
+puts "======= PELO MÉTODO DE INSTÂNCIA ========"
 bolo_de_laranja.nome = "Bolo de Laranja"
 bolo_de_laranja.cor = "Laranja"
 bolo_de_laranja.especial = "SIM"
 bolo_de_laranja.cozinhar
 
 bolo_de_chocolate = Bolo.new #Cria uma instância apenas pro bolo de chocolate, sendo assim, uma instância pra um tipo.
+puts "========================================="
 bolo_de_chocolate.nome = "Bolo de chocolate"
 bolo_de_chocolate.cor = "Marrom"
 bolo_de_chocolate.especial = "NÃO"
 bolo_de_chocolate.cozinhar
+puts "=========================================\n\n"
+
+Bolo.cozinhar_todos([bolo_de_laranja, bolo_de_chocolate])#Não é uma instância, pois é um método que serve para todos os bolos, sendo assim "cozinhar_todos" um "MÉTODO DE CLASSE".
 
 
 
