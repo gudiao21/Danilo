@@ -46,7 +46,7 @@ class ControladorVacina #Primeira coisa que o professor fez.
         @@colaboradores
     end
 
-    def self.menu #O "self" transforma o método "menu" em "método de classe" ou "estático".Vai servir para várias instâncias. O chamando por: "ControladorVacina.menu".
+    def self.menu #O "self" transforma o método "menu" em "método de classe" ou "estático".Vai servir para várias instâncias. O chamando por: "ControladorVacina.menu"
         puts "\nO que deseja fazer? \n\n"
         puts "(1) Cadastrar colaborador"
         puts "(2) Localizar colaborador"
