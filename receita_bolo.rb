@@ -46,7 +46,7 @@ bolo_de_chocolate.cozinhar
 puts "==========================================\n\n"
 
 #Abaixo é um "método de Classe":
-Bolo.cozinhar_todos([bolo_de_laranja, bolo_de_chocolate])#Não é uma instância, pois é um método que serve para todos os bolos, sendo assim "cozinhar_todos" um "MÉTODO DE CLASSE".
+Bolo.cozinhar_todos([bolo_de_laranja, bolo_de_chocolate])#Não é uma instância, pois é um método que serve para todos os bolos, sendo assim "cozinhar_todos" um "MÉTODO DE CLASSE", também conhecido como "MÉTODO ESTÁTICO".
 
 
 #========================================================================================================================================================================================

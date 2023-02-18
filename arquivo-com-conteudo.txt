@@ -1,0 +1,3 @@
+uma aula de shell script
+para explicar às(aos) alunos/alunas como criar arquivos
+em várias linhas
