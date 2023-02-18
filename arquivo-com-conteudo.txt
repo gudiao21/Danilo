@@ -1,3 +1,7 @@
 uma aula de shell script
-para explicar às(aos) alunos/alunas como criar arquivos
+para explicar aos alunos/alunas como criar arquivos
 em várias linhas
+
+Acrescentando novas linhas
+no arquivo existente que iremos fazer os dados
+para mais uma aula
