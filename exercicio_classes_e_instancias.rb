@@ -6,12 +6,19 @@
 # nome, raça, tamanho, velocidade, correr, andar, cor, falar, idade, relacionar, todos_os animais, buscar_animal_por_id, buscar_animal_por_nome.
 
 # Obs:
-# Não precisa desenvolver tela, seja simples ... quero só a classe. O que o professor quer é saber se sabemos o que é propriedades, métodos de classe e métodos de instância, não precisando ter nada dentro dos métodos.
+# Não precisa desenvolver tela, seja simples ... quero só a classe. O que o professor quer é saber se sabemos o que é propriedades, "métodos de classe" e "métodos de instância", não precisando ter nada dentro dos métodos.
 
+animais = []
 class Animal
-    attr_accessor :nome, :raca, :tamanho, :velocidade, :cor, :idade
+    attr_accessor :nome, :raca, :tamanho, :velocidade, :cor, :idade, :id #"attr_accessor" é um método que cria, via meta programação, o @nome, @raca, @tamanho, ...
 
-    def self.buscar_animal_por_id
+    def self.buscar_animal_por_id(id) #"self" caracteriza um método de classe para todas as instâncias(quando se dá um ".new").
+    end
+
+    def self.buscar_animais_por_nome(nome)
+    end
+
+    def relacionar(id)
     end
 end
 
@@ -25,12 +32,7 @@ class todos_os_animais
     def andar
     end
 
-    def falar
+    def latir
     end
     
-    def relacionar
-    end
-    
-    def buscar_animal_por_nome
-    end
 end
