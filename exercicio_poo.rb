@@ -16,7 +16,7 @@ require "byebug"
 class Colaborador #Segunda coisa que o professor fez.
         attr_accessor :nome, :sobrenome, :cpf, :vacinado #Quarta coisa feita. ":vacinado" será referido como boleano.
 
-    def self.busca_por_cpf(cpf) #Sexto, é um método de classe, caracterizado pelo "self", não precisando dar um "new" para usar, e sim o "nome_da_classe.nome_do_método".Ex: "Colaborador.busca_por _cpf". É método de classe por se tratar de uma busca por TODOS os colaboradores.
+    def self.busca_por_cpf(cpf) #Sexto, é um método de classe, caracterizado pelo "self", não precisando dar um "new" para usar, e sim o "nome_da_classe.nome_do_método".Ex: "Colaborador.busca_por _cpf". É um MÉTODO DE CLASSE, por se tratar de uma busca por TODOS os cpf dos colaboradores.
         #ControladorVacina.colaboradores.find{|colaborador| colaborador.cpf == cpf} #Mesma coisa que as 6 linhas abaixo.
         
         colaborador_encontrado = nil
@@ -30,17 +30,17 @@ class Colaborador #Segunda coisa que o professor fez.
     end    
         
     
-    def mostrar #Terceira coisa que o professor fez.É um método de instância por ser um "mostrar" para cada colaborador.
+    def mostrar #Terceira coisa que o professor fez. É um método de instância, por ser um "mostrar" para CADA colaborador e não para TODOS.
         puts "Nome: #{@nome}"
         puts "Sobrenome: #{@sobrenome}"
         puts "CPF: #{@cpf}"
-        puts "Vacinado(a): #{(@vacinado ? "Sim" : "Não")}" #"Operador Ternário". Seria um "if" com boleano, ou seja, se vacinado true, então "Sim", senão "Não".Tudo em uma linha somente.
+        puts "Vacinado(a): #{(@vacinado? "Sim" : "Não")}" #"Operador Ternário". Seria um "if" com boleano, ou seja, se vacinado true, então "Sim", senão "Não".Tudo em uma linha somente.
     end    
 end
 
 class ControladorVacina #Primeira coisa que o professor fez.
-    @@colaboradores = [] #Variável global.
-    SAIR_DO_SISTEMA = 4
+    @@colaboradores = [] #Variável global.É o banco de dados dos colaboradores, na memória.
+    SAIR_DO_SISTEMA = 4 #Constante criada para sair do programa.T
 
     def self.colaboradores #Quinta. É um método de classe para retornar o colaborador para várias instâncias.
         @@colaboradores
@@ -71,7 +71,7 @@ class ControladorVacina #Primeira coisa que o professor fez.
         return 0
     end
 
-    def self.incluir_colaborador(cpf)
+    def self.incluir_colaborador(cpf)#Cria método de classe, pois serve para todos os colaboradores.
         colaborador = Colaborador.new #Criou-se uma instância, nascendo assim um novo objeto chamado "colaborador".
         colaborador.cpf = cpf
         puts "Digite o nome do colaborador. \n\n"
@@ -158,10 +158,10 @@ class ControladorVacina #Primeira coisa que o professor fez.
     end
 end
 
-    ControladorVacina.init #chamará o método ou função "init", que está logo acima.
+    ControladorVacina.init #chamará o método ou função "init", que está logo acima. É o método que inicia todo o programa.
 
 
-
+#=================================================================================================================
 
 
 
