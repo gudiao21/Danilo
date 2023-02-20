@@ -28,7 +28,7 @@ class Animal
 
 end
 
-#Criação de algumas instâncias - tipodoanimal = Animal.new:
+# Criação de algumas instâncias - tipodoanimal = Animal.new:
 leao = Animal.new
 leao.id = 1
 leao.nome = "Leão"
