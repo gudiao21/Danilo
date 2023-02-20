@@ -5,6 +5,8 @@
 # =============================================================================================
 
 
+animais = []
+
 class Animal
     attr_accessor :id, :nome, :raca, :tamanho, :velocidade, :cor, :idade
 
@@ -20,8 +22,8 @@ class Animal
     
     end
 
-    def salvar_lista
-
+    def self.salvar_lista(animais) #Já é o meu array.
+        animais << self.todos_os_animais
     end
 
 end
@@ -61,5 +63,9 @@ pato.velocidade = 8
 
 
 animal = Animal.buscar_por_id(1)
+
 animais = Animal.buscar_por_nome(pato.nome)
-Animal.buscar_todos
+
+animais = Animal.buscar_todos
+
+Animal.salvar_lista(Animais)
