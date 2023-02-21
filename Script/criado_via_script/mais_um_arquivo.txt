@@ -1,0 +1,2 @@
+Estamos aprendendo a manipular
+arquivos na aula de devops
