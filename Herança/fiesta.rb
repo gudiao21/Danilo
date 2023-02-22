@@ -13,4 +13,4 @@ class Fiesta < Carro #Uma forma de chamar método privado é fazendo herança pa
 
 end
 
-OBS: Se eu for chamar 
+# OBS: A diferença entre os métodos PRIVADOS, PÚBLICO e PROTEGIDOS é se eu for chamar no modo PROTEGIDO eu poderei chamar tanto o método diretamente fora da classe (herdando a classe obrigatóriamente) ou chamando através da criação da sua instância fora da classe. Já através do modo PRIVADO, somente será possível chamar o método diretamente fora da classe (herdando o mesmo obrigatóriamente), sem precisar criar a respectiva instância fora da classe. O modo PÚBLICO eu não terei restrição nenhuma fora ou dentro da mesma classe originária.
