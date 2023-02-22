@@ -13,30 +13,30 @@ class Carro
 
     private
     def algo_mais
-        "Este é um método privado para retornar algo a mais."
+        "Este é um método PRIVADO para retornar algo a mais."
     end
     
     def algo_mais2
-        "Este é um método privado para retornar algo a mais."
+        "Este é um método PRIVADO para retornar algo a mais 2."
     end
 
     def algo_mais3
-        "Este é um método privado para retornar algo a mais."
+        "Este é um método PRIVADO para retornar algo a mais 3."
     end
 
     def algo_mais4
-        "Este é um método privado para retornar algo a mais."
+        "Este é um método PRIVADO para retornar algo a mais 4."
     end
 
     public
 
     def algo_mais_publico
-        "Este é um método público para retornar algo a mais."
+        "Este é um método PÚBLICO para retornar algo a mais."
     end
 
     protected
 
     def algo_mais_protected #Só dá para utilizar dentro da própria instância e não fora.
-        "Este é um método protegido para retornar algo a mais."
+        "Este é um método PROTEGIDO para retornar algo a mais."
     end
 end
