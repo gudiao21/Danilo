@@ -143,12 +143,11 @@ class ControladorVacina #Primeira coisa que o professor fez.
         ControladorVacina.pausa #Depois de cadastrar, mostra pausado.
     end
         
-        def self.pausa
-            sleep(3)
-            system "clear"
-        end
+    def self.pausa
+        sleep(3)
+        system "clear"
+    end
         
-    
     def self.init #Método de classe para iniciar o programa.
         while(true)
             opcao = ControladorVacina.menu #?
